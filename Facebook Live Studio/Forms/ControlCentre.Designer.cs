@@ -62,7 +62,7 @@
             this.Controls.Add(this.ScheduleButton);
             this.Name = "ControlCentre";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Facebook Live";
+            this.Text = "Facebook Live Studio";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ControlCentre_Load);
             this.ResumeLayout(false);

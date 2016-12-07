@@ -49,7 +49,7 @@ namespace Facebook_Live_Studio.Forms
 
         public string UserAccessToken { get; set; }
         public static string PageAccessToken { get; set; }
-   
+
 
         private void LoadAuthorise(object sender, EventArgs e)
         //
@@ -88,7 +88,7 @@ namespace Facebook_Live_Studio.Forms
 
                 try
                 {
-                    
+
                 }
                 catch (Exception exception)
                 {
