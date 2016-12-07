@@ -12,11 +12,6 @@ namespace Facebook_Live_Studio.Forms
 
         private void ControlCentre_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void AuthoriseButton_Click(object sender, EventArgs e)
-        {
             var Authorise = new Authorise();
             Authorise.ShowDialog(this);
         }

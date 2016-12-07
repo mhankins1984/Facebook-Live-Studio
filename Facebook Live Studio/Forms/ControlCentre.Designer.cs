@@ -28,24 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.AuthoriseButton = new System.Windows.Forms.Button();
             this.ScheduleButton = new System.Windows.Forms.Button();
             this.VideocommentsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // AuthoriseButton
-            // 
-            this.AuthoriseButton.Location = new System.Drawing.Point(11, 12);
-            this.AuthoriseButton.Name = "AuthoriseButton";
-            this.AuthoriseButton.Size = new System.Drawing.Size(120, 30);
-            this.AuthoriseButton.TabIndex = 0;
-            this.AuthoriseButton.Text = "Authorise";
-            this.AuthoriseButton.UseVisualStyleBackColor = true;
-            this.AuthoriseButton.Click += new System.EventHandler(this.AuthoriseButton_Click);
-            // 
             // ScheduleButton
             // 
-            this.ScheduleButton.Location = new System.Drawing.Point(11, 48);
+            this.ScheduleButton.Location = new System.Drawing.Point(12, 12);
             this.ScheduleButton.Name = "ScheduleButton";
             this.ScheduleButton.Size = new System.Drawing.Size(120, 30);
             this.ScheduleButton.TabIndex = 1;
@@ -55,9 +44,9 @@
             // 
             // VideocommentsButton
             // 
-            this.VideocommentsButton.Location = new System.Drawing.Point(12, 84);
+            this.VideocommentsButton.Location = new System.Drawing.Point(13, 48);
             this.VideocommentsButton.Name = "VideocommentsButton";
-            this.VideocommentsButton.Size = new System.Drawing.Size(120, 30);
+            this.VideocommentsButton.Size = new System.Drawing.Size(120, 29);
             this.VideocommentsButton.TabIndex = 2;
             this.VideocommentsButton.Text = "Comments";
             this.VideocommentsButton.UseVisualStyleBackColor = true;
@@ -71,7 +60,6 @@
             this.ClientSize = new System.Drawing.Size(1312, 742);
             this.Controls.Add(this.VideocommentsButton);
             this.Controls.Add(this.ScheduleButton);
-            this.Controls.Add(this.AuthoriseButton);
             this.Name = "ControlCentre";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facebook Live";
@@ -82,8 +70,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button AuthoriseButton;
         private System.Windows.Forms.Button ScheduleButton;
         private System.Windows.Forms.Button VideocommentsButton;
     }
