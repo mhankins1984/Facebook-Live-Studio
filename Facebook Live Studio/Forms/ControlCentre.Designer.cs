@@ -34,7 +34,7 @@
             // 
             // ScheduleButton
             // 
-            this.ScheduleButton.Location = new System.Drawing.Point(12, 12);
+            this.ScheduleButton.Location = new System.Drawing.Point(12, 89);
             this.ScheduleButton.Name = "ScheduleButton";
             this.ScheduleButton.Size = new System.Drawing.Size(120, 30);
             this.ScheduleButton.TabIndex = 1;
@@ -44,7 +44,7 @@
             // 
             // VideocommentsButton
             // 
-            this.VideocommentsButton.Location = new System.Drawing.Point(13, 48);
+            this.VideocommentsButton.Location = new System.Drawing.Point(12, 125);
             this.VideocommentsButton.Name = "VideocommentsButton";
             this.VideocommentsButton.Size = new System.Drawing.Size(120, 29);
             this.VideocommentsButton.TabIndex = 2;

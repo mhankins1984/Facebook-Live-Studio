@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using Facebook;
 using Newtonsoft.Json;
+using System.Data;
 
 namespace Facebook_Live_Studio.Forms
 {
@@ -13,6 +14,18 @@ namespace Facebook_Live_Studio.Forms
         {
             InitializeComponent();
         }
+
+        private void dataGridView1_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            e.PaintParts &= ~DataGridViewPaintParts.Focus;
+        }
+
+        private void dataGridView2_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            e.PaintParts &= ~DataGridViewPaintParts.Focus;
+        }
+
+        DataTable table = new DataTable();
 
         //
         // Chyron xml output
@@ -68,7 +81,11 @@ namespace Facebook_Live_Studio.Forms
 
         private void Videocomments_Load(object sender, EventArgs e)
         {
+            table.Columns.Add("Name", typeof(string));
+            table.Columns.Add("Comment", typeof(string));
+
             InitTimer();
+            this.dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
             //
             // deserialize video comments json data
@@ -82,6 +99,20 @@ namespace Facebook_Live_Studio.Forms
             string json = result.ToString();
 
             RootObject rootobject = JsonConvert.DeserializeObject<RootObject>(json);
+            //
+            // dataGridView1 autosize
+            //
+            this.dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            //
+            // dataGridView select whole row
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.MultiSelect = false;
+            dataGridView1.RowPrePaint += new DataGridViewRowPrePaintEventHandler(dataGridView1_RowPrePaint);
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView2.MultiSelect = false;
+            dataGridView2.RowPrePaint += new DataGridViewRowPrePaintEventHandler(dataGridView2_RowPrePaint);
 
             int i = 0;
 
@@ -92,7 +123,7 @@ namespace Facebook_Live_Studio.Forms
                 dataGridView1.Rows[i++].Cells[1].Value = d.message;
             }
         }
-
+        
         private Timer timer1;
         public void InitTimer()
         {
@@ -105,7 +136,7 @@ namespace Facebook_Live_Studio.Forms
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
+            timer1.Interval = 5000; // in miliseconds
 
             //
             // deserialize video comments json data
@@ -119,7 +150,7 @@ namespace Facebook_Live_Studio.Forms
             string json = result.ToString();
 
             RootObject rootobject = JsonConvert.DeserializeObject<RootObject>(json);
-
+         
             int i = 0;
 
             dataGridView1.Rows.Clear();
@@ -129,6 +160,37 @@ namespace Facebook_Live_Studio.Forms
                 dataGridView1.Rows[i].Cells[0].Value = d.from.name;
                 dataGridView1.Rows[i++].Cells[1].Value = d.message;
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            timer1.Interval = 30000; // in miliseconds
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            table.Rows.Add(dataGridView1.SelectedCells[0].Value, dataGridView1.SelectedCells[1].Value);
+            dataGridView2.DataSource = table;
+
+            //
+            // dataGridView2 autosize
+            //
+            this.dataGridView2.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridView2.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            timer1.Interval = 1; // in miliseconds
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string name = dataGridView2.SelectedCells[0].Value.ToString();
+            string comment = dataGridView2.SelectedCells[1].Value.ToString();
+
+            outputXmL(name, comment);
         }
     }
 }
