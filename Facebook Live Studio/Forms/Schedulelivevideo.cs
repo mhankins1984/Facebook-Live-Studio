@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Windows.Forms;
 using Facebook;
 using System.Drawing;
+using Newtonsoft.Json.Linq;
 
 namespace Facebook_Live_Studio.Forms
 {
@@ -49,6 +50,7 @@ namespace Facebook_Live_Studio.Forms
             StreamkeyTextBox.Text = stream_key;
 
             VideoId = result.id;
+           
         }
 
         private void VideoTitleTextBox_Leave(object sender, EventArgs e)

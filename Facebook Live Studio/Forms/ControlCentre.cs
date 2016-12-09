@@ -27,5 +27,11 @@ namespace Facebook_Live_Studio.Forms
             var Comments = new Videocomments();
             Comments.ShowDialog(this);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var Videoselector = new Videoselector();
+            Videoselector.ShowDialog(this);
+        }
     }
 }
