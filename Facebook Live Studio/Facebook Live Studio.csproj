@@ -82,6 +82,12 @@
     <Compile Include="Forms\Schedulelivevideo.Designer.cs">
       <DependentUpon>Schedulelivevideo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Streampreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Streampreview.Designer.cs">
+      <DependentUpon>Streampreview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Videoselector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Schedulelivevideo.resx">
       <DependentUpon>Schedulelivevideo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Streampreview.resx">
+      <DependentUpon>Streampreview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Videoselector.resx">
       <DependentUpon>Videoselector.cs</DependentUpon>
@@ -127,6 +136,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxAXVLC">
+      <Guid>{DF2BBE39-40A8-433B-A279-073F48DA94B6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="AXVLC">
+      <Guid>{DF2BBE39-40A8-433B-A279-073F48DA94B6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

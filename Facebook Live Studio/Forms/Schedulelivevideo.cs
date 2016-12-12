@@ -3,7 +3,6 @@ using System.Configuration;
 using System.Windows.Forms;
 using Facebook;
 using System.Drawing;
-using Newtonsoft.Json.Linq;
 
 namespace Facebook_Live_Studio.Forms
 {

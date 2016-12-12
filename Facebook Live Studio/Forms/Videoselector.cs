@@ -97,6 +97,14 @@ namespace Facebook_Live_Studio.Forms
         private void SelectButton_Click(object sender, EventArgs e)
         {
             VideoID = dataGridView1.SelectedCells[0].Value.ToString();
+
+            // needs ControlCentre tio refresh on close
+
+            //ControlCentre ControlCentre = new ControlCentre();
+            //ControlCentre.TextBoxValue = dataGridView1.SelectedCells[0].Value.ToString();
+
+            //
+
             this.Close();
         }
 
@@ -138,7 +146,13 @@ namespace Facebook_Live_Studio.Forms
         private void CancelButton_Click(object sender, EventArgs e)
         {
            this.Close();
-            VideoID = null;
+           VideoID = null;
+        }
+
+        
+        private void Videoselector_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 }

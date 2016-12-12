@@ -10,6 +10,12 @@ namespace Facebook_Live_Studio.Forms
             InitializeComponent();
         }
 
+        public string TextBoxValue
+        {
+            get { return textBox1.Text; }
+            set { textBox1.Text = value; }
+        }
+
         private void ControlCentre_Load(object sender, EventArgs e)
         {
             var Authorise = new Authorise();
@@ -33,5 +39,11 @@ namespace Facebook_Live_Studio.Forms
             var Videoselector = new Videoselector();
             Videoselector.ShowDialog(this);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var Streampreview = new Streampreview ();
+            Streampreview.ShowDialog(this);
+        }       
     }
 }

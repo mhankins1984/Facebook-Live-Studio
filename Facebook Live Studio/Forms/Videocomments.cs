@@ -35,7 +35,6 @@ namespace Facebook_Live_Studio.Forms
         }
 
         DataTable table = new DataTable();
-
         //
         // Chyron xml output
         //
@@ -53,7 +52,6 @@ namespace Facebook_Live_Studio.Forms
             x.Serialize(sw, cd);
             sw.Close();
         }
-
         //
         // video comment classes
         //
@@ -88,11 +86,61 @@ namespace Facebook_Live_Studio.Forms
             public Paging paging { get; set; }
         }
 
+        void sendastring(String w)
+        {
+            Debug.WriteLine(String.Format("Chyron Address : {0}", chyronAddress));
+            server = chyronAddress;
+            Int32 port = 23;
+            TcpClient client = new TcpClient(server, port);
+            Debug.WriteLine(String.Format("Chyron Address : {0}", client.Client.RemoteEndPoint));
+
+            NetworkStream stream = client.GetStream();
+
+            // Translate the passed message into ASCII and store it as a Byte array.
+            Byte[] data = System.Text.Encoding.ASCII.GetBytes(w);
+            Debug.WriteLine(data + " Data Length : " + data.Length);
+
+            // Get a client stream for reading and writing.
+            //Thread.Sleep(50);
+            Debug.WriteLine(String.Format("Is controlling:{0}, stream read : {1}, write : {2} client connected : {3}", chyronAddress, stream.CanRead, stream.CanWrite, client.Connected));
+
+            // Send the message to the connected TcpServer. 
+            stream.Write(data, 0, data.Length);
+
+            Debug.WriteLine(String.Format("Sent: {0}", w));
+            Thread.Sleep(200);
+            // Receive the TcpServer.response.
+
+            // Buffer to store the response bytes.
+            data = new Byte[256];
+
+            // String to store the response ASCII representation.
+            String responseData = String.Empty;
+
+            // Read the first batch of the TcpServer response bytes.
+            {
+                Int32 bytes = stream.Read(data, 0, data.Length);
+                responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
+                responseData.Replace("\r\n\r\n", "\r\n");
+            }
+            // catch { }
+            Debug.WriteLine(String.Format("Received: {0}", responseData));
+
+            // Close everything.
+            stream.Close();
+            client.Close();
+
+        }
+
         private void Videocomments_Load(object sender, EventArgs e)
         {
-            var Videoselector = new Videoselector();
-            Videoselector.ShowDialog(this);
+            if (Videoselector.VideoID == null)
+            {
+                var Videoselector = new Videoselector();
+                Videoselector.ShowDialog(this);
+            }
 
+            else { }
 
             if (Videoselector.VideoID == null)
             {
@@ -156,7 +204,6 @@ namespace Facebook_Live_Studio.Forms
             timer1.Enabled = true;
         }
 
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (Videoselector.VideoID == null)
@@ -166,11 +213,10 @@ namespace Facebook_Live_Studio.Forms
 
             else
             {
-
                 timer1.Interval = 5000; // in miliseconds
-                                        //
-                                        // Get video comments data
-                                        //
+                //
+                // Get video comments data
+                //
                 var fb = new FacebookClient(Authorise.PageAccessToken);
                 var LiveVideosComments = string.Format(
                         @"{0}/comments?order=reverse_chronological",
@@ -204,7 +250,6 @@ namespace Facebook_Live_Studio.Forms
         {
             table.Rows.Add(dataGridView1.SelectedCells[0].Value, dataGridView1.SelectedCells[1].Value);
             dataGridView2.DataSource = table;
-
             //
             // dataGridView2 autosize
             //
@@ -225,63 +270,12 @@ namespace Facebook_Live_Studio.Forms
 
             outputXmL(name, comment);
 
-            Thread.Sleep(500);
+            Thread.Sleep(500); // in miliseconds
 
             String V5 = @"V\5\13\1\0\feedback strap-auto\1\\" + "\r\n";
 
             sendastring(V5);
             current_still = next_still;
-        }
-
-        void sendastring(String w)
-        {
-            Debug.WriteLine(String.Format("Chyron Address : {0}", chyronAddress));
-            server = chyronAddress;
-            Int32 port = 23;
-            TcpClient client = new TcpClient(server, port);
-            Debug.WriteLine(String.Format("Chyron Address : {0}", client.Client.RemoteEndPoint));
-
-            NetworkStream stream = client.GetStream();
-
-
-            // Translate the passed message into ASCII and store it as a Byte array.
-            Byte[] data = System.Text.Encoding.ASCII.GetBytes(w);
-            Debug.WriteLine(data + " Data Length : " + data.Length);
-
-            // Get a client stream for reading and writing.
-
-
-            //Thread.Sleep(50);
-            Debug.WriteLine(String.Format("Is controlling:{0}, stream read : {1}, write : {2} client connected : {3}", chyronAddress, stream.CanRead, stream.CanWrite, client.Connected));
-
-            // Send the message to the connected TcpServer. 
-            stream.Write(data, 0, data.Length);
-
-            Debug.WriteLine(String.Format("Sent: {0}", w));
-            Thread.Sleep(200);
-            // Receive the TcpServer.response.
-
-            // Buffer to store the response bytes.
-            data = new Byte[256];
-
-            // String to store the response ASCII representation.
-            String responseData = String.Empty;
-
-            // Read the first batch of the TcpServer response bytes.
-            {
-                Int32 bytes = stream.Read(data, 0, data.Length);
-                responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
-                responseData.Replace("\r\n\r\n", "\r\n");
-            }
-            // catch { }
-
-            Debug.WriteLine(String.Format("Received: {0}", responseData));
-
-            // Close everything.
-
-            stream.Close();
-            client.Close();
-
         }
 
         private void playButton_Click(object sender, EventArgs e)
@@ -290,10 +284,8 @@ namespace Facebook_Live_Studio.Forms
             //Play
             V6 = @"V\6\1\1\\" + "\r\n";
 
-
             Byte[] data_response = new Byte[256];
-
-
+            
             Thread.Sleep(100);
 
             sendastring(V6);
