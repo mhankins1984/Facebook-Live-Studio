@@ -8,13 +8,6 @@ namespace Facebook_Live_Studio.Forms
 {
     public partial class Schedulelivevideo : Form
     {
-        public string PageId
-        {
-            get
-            {
-                return ConfigurationManager.AppSettings["PageId"];
-            }
-        }
 
         public Schedulelivevideo()
         {
@@ -27,6 +20,16 @@ namespace Facebook_Live_Studio.Forms
             this.VideoTitleTextBox.Enter += new System.EventHandler(this.VideoTitleTextBox_Enter);
             this.VideotagsTextBox.Leave += new System.EventHandler(this.VideotagsTextBox_Leave);
             this.VideotagsTextBox.Enter += new System.EventHandler(this.VideotagsTextBox_Enter);
+        }
+        //
+        // Get required app.config values
+        //
+        public string PageId
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["PageId"];
+            }
         }
 
         public static string VideoId { get; set; }

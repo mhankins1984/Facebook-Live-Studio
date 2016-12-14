@@ -12,9 +12,10 @@ namespace Facebook_Live_Studio.Forms
         public Authorise()
         {
             InitializeComponent();
-
         }
-
+        //
+        // Get required app.config values
+        //
         public string ApplicationId
         {
             get
