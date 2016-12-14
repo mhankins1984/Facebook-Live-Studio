@@ -10,12 +10,6 @@ namespace Facebook_Live_Studio.Forms
             InitializeComponent();
         }
 
-        public string TextBoxValue
-        {
-            get { return textBox1.Text; }
-            set { textBox1.Text = value; }
-        }
-
         private void ControlCentre_Load(object sender, EventArgs e)
         {
             var Authorise = new Authorise();
