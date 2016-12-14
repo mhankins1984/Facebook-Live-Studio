@@ -54,6 +54,7 @@ namespace Facebook_Live_Studio.Forms
         }
 
         public static string VideoID { get; set; }
+        public static string VideoTitle { get; set; }
 
         private void Videoselector_Load(object sender, EventArgs e)
         {
@@ -97,14 +98,7 @@ namespace Facebook_Live_Studio.Forms
         private void SelectButton_Click(object sender, EventArgs e)
         {
             VideoID = dataGridView1.SelectedCells[0].Value.ToString();
-
-            // needs ControlCentre tio refresh on close
-
-            //ControlCentre ControlCentre = new ControlCentre();
-            //ControlCentre.TextBoxValue = dataGridView1.SelectedCells[0].Value.ToString();
-
-            //
-
+            VideoTitle = dataGridView1.SelectedCells[2].Value.ToString();
             this.Close();
         }
 

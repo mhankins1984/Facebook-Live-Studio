@@ -31,6 +31,7 @@
             this.ClearButton = new System.Windows.Forms.Button();
             this.PlayButton = new System.Windows.Forms.Button();
             this.PlayDataGridView = new System.Windows.Forms.DataGridView();
+            this.VideoTitleTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.CommentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QueDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayDataGridView)).BeginInit();
@@ -47,11 +48,11 @@
             this.CommentID,
             this.Name,
             this.Comment});
-            this.CommentsDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.CommentsDataGridView.Location = new System.Drawing.Point(12, 91);
             this.CommentsDataGridView.Name = "CommentsDataGridView";
             this.CommentsDataGridView.ReadOnly = true;
             this.CommentsDataGridView.RowHeadersVisible = false;
-            this.CommentsDataGridView.Size = new System.Drawing.Size(900, 880);
+            this.CommentsDataGridView.Size = new System.Drawing.Size(900, 801);
             this.CommentsDataGridView.TabIndex = 2;
             this.CommentsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CommentsDataGridView_CellContentClick);
             // 
@@ -97,10 +98,10 @@
             this.QueDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.QueDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.QueDataGridView.Location = new System.Drawing.Point(992, 12);
+            this.QueDataGridView.Location = new System.Drawing.Point(992, 91);
             this.QueDataGridView.Name = "QueDataGridView";
             this.QueDataGridView.ReadOnly = true;
-            this.QueDataGridView.Size = new System.Drawing.Size(900, 781);
+            this.QueDataGridView.Size = new System.Drawing.Size(900, 702);
             this.QueDataGridView.TabIndex = 4;
             // 
             // ClearButton
@@ -138,12 +139,25 @@
             this.PlayDataGridView.Size = new System.Drawing.Size(900, 53);
             this.PlayDataGridView.TabIndex = 11;
             // 
+            // VideoTitleTextBox
+            // 
+            this.VideoTitleTextBox.BackColor = System.Drawing.Color.White;
+            this.VideoTitleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.VideoTitleTextBox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.VideoTitleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VideoTitleTextBox.Location = new System.Drawing.Point(12, 26);
+            this.VideoTitleTextBox.Name = "VideoTitleTextBox";
+            this.VideoTitleTextBox.ReadOnly = true;
+            this.VideoTitleTextBox.Size = new System.Drawing.Size(899, 31);
+            this.VideoTitleTextBox.TabIndex = 12;
+            // 
             // Videocomments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1904, 966);
+            this.Controls.Add(this.VideoTitleTextBox);
             this.Controls.Add(this.PlayDataGridView);
             this.Controls.Add(this.PlayButton);
             this.Controls.Add(this.ClearButton);
@@ -158,6 +172,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.QueDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayDataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -171,5 +186,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CommentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
+        private System.Windows.Forms.TextBox VideoTitleTextBox;
     }
 }

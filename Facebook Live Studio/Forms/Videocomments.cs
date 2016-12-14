@@ -160,6 +160,7 @@ namespace Facebook_Live_Studio.Forms
                 this.Close();
                 timer1.Stop();
             }
+            VideoTitleTextBox.Text = Videoselector.VideoTitle; // Displays video title
             //
             // Create columns in tables for tempory data storage
             //
@@ -385,6 +386,7 @@ namespace Facebook_Live_Studio.Forms
                     //
                     // Load next comment from que
                     //
+                    QueDataGridView.Rows[0].Selected = true;
                     PlayTable.Rows.Add(QueDataGridView.SelectedCells[0].Value, QueDataGridView.SelectedCells[1].Value, QueDataGridView.SelectedCells[2].Value);
                     PlayDataGridView.DataSource = PlayTable;
                     //
