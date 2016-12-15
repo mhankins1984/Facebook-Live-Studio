@@ -24,14 +24,14 @@
         {
             this.CommentsDataGridView = new System.Windows.Forms.DataGridView();
             this.CommentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Namecolumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelectButton = new System.Windows.Forms.Button();
             this.QueDataGridView = new System.Windows.Forms.DataGridView();
             this.ClearButton = new System.Windows.Forms.Button();
             this.PlayButton = new System.Windows.Forms.Button();
             this.PlayDataGridView = new System.Windows.Forms.DataGridView();
-            this.VideoTitleTextBox = new System.Windows.Forms.TextBox();
+            this.VideoTitleLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CommentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QueDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayDataGridView)).BeginInit();
@@ -46,7 +46,7 @@
             this.CommentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CommentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CommentID,
-            this.Name,
+            this.Namecolumn,
             this.Comment});
             this.CommentsDataGridView.Location = new System.Drawing.Point(12, 91);
             this.CommentsDataGridView.Name = "CommentsDataGridView";
@@ -64,12 +64,12 @@
             this.CommentID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.CommentID.Visible = false;
             // 
-            // Name
+            // Namecolumn
             // 
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            this.Name.ReadOnly = true;
-            this.Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Namecolumn.HeaderText = "Name";
+            this.Namecolumn.Name = "Namecolumn";
+            this.Namecolumn.ReadOnly = true;
+            this.Namecolumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Comment
             // 
@@ -139,17 +139,15 @@
             this.PlayDataGridView.Size = new System.Drawing.Size(900, 53);
             this.PlayDataGridView.TabIndex = 11;
             // 
-            // VideoTitleTextBox
+            // VideoTitleLabel
             // 
-            this.VideoTitleTextBox.BackColor = System.Drawing.Color.White;
-            this.VideoTitleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.VideoTitleTextBox.Cursor = System.Windows.Forms.Cursors.Default;
-            this.VideoTitleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VideoTitleTextBox.Location = new System.Drawing.Point(12, 26);
-            this.VideoTitleTextBox.Name = "VideoTitleTextBox";
-            this.VideoTitleTextBox.ReadOnly = true;
-            this.VideoTitleTextBox.Size = new System.Drawing.Size(899, 31);
-            this.VideoTitleTextBox.TabIndex = 12;
+            this.VideoTitleLabel.AutoSize = true;
+            this.VideoTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VideoTitleLabel.Location = new System.Drawing.Point(12, 27);
+            this.VideoTitleLabel.Name = "VideoTitleLabel";
+            this.VideoTitleLabel.Size = new System.Drawing.Size(142, 31);
+            this.VideoTitleLabel.TabIndex = 0;
+            this.VideoTitleLabel.Text = "Video Title";
             // 
             // Videocomments
             // 
@@ -157,14 +155,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1904, 966);
-            this.Controls.Add(this.VideoTitleTextBox);
+            this.Controls.Add(this.VideoTitleLabel);
             this.Controls.Add(this.PlayDataGridView);
             this.Controls.Add(this.PlayButton);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.QueDataGridView);
             this.Controls.Add(this.SelectButton);
             this.Controls.Add(this.CommentsDataGridView);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Name = "Videocomments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Comments";
             this.Load += new System.EventHandler(this.Videocomments_Load);
@@ -183,9 +182,9 @@
         private System.Windows.Forms.Button ClearButton;
         private System.Windows.Forms.Button PlayButton;
         private System.Windows.Forms.DataGridView PlayDataGridView;
+        private System.Windows.Forms.Label VideoTitleLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn CommentID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Namecolumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
-        private System.Windows.Forms.TextBox VideoTitleTextBox;
     }
 }
