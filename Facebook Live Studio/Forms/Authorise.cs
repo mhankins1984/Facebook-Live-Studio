@@ -48,7 +48,7 @@ namespace Facebook_Live_Studio.Forms
             }
         }
 
-        public string UserAccessToken { get; set; }
+        public static string UserAccessToken { get; set; }
         public static string PageAccessToken { get; set; }
 
 
@@ -73,13 +73,13 @@ namespace Facebook_Live_Studio.Forms
             var url = e.Url.Fragment;
             if (url.Contains("access_token") && url.Contains("#"))
             {
-                //
-                // get page access token
-                //
                 this.Close();
                 url = (new Regex("#")).Replace(url, "?", 1);
                 UserAccessToken = System.Web.HttpUtility.ParseQueryString(url).Get("access_token");
 
+                //
+                // get page access token
+                //
                 var fbpat = new FacebookClient(UserAccessToken);
                 var GetPageAccessToken = string.Format(
                     @"{0}?fields=access_token",

@@ -51,7 +51,7 @@
             // 
             this.StreamkeyTextBox.BackColor = System.Drawing.Color.White;
             this.StreamkeyTextBox.Font = new System.Drawing.Font("Arial", 8F);
-            this.StreamkeyTextBox.Location = new System.Drawing.Point(15, 270);
+            this.StreamkeyTextBox.Location = new System.Drawing.Point(15, 299);
             this.StreamkeyTextBox.Name = "StreamkeyTextBox";
             this.StreamkeyTextBox.ReadOnly = true;
             this.StreamkeyTextBox.Size = new System.Drawing.Size(295, 20);
@@ -152,7 +152,7 @@
             this.label2.AutoSize = true;
             this.label2.Cursor = System.Windows.Forms.Cursors.Default;
             this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(290, 203);
+            this.label2.Location = new System.Drawing.Point(290, 262);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 14);
             this.label2.TabIndex = 9;
@@ -163,7 +163,7 @@
             this.label1.AutoSize = true;
             this.label1.Cursor = System.Windows.Forms.Cursors.Default;
             this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 183);
+            this.label1.Location = new System.Drawing.Point(12, 242);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(122, 14);
             this.label1.TabIndex = 8;
@@ -171,25 +171,27 @@
             // 
             // DatePicker
             // 
-            this.DatePicker.Location = new System.Drawing.Point(15, 200);
+            this.DatePicker.Location = new System.Drawing.Point(15, 259);
             this.DatePicker.Name = "DatePicker";
             this.DatePicker.Size = new System.Drawing.Size(200, 20);
             this.DatePicker.TabIndex = 6;
+            this.DatePicker.ValueChanged += new System.EventHandler(this.DatePicker_ValueChanged);
             // 
             // TimePicker
             // 
-            this.TimePicker.Location = new System.Drawing.Point(221, 200);
+            this.TimePicker.Location = new System.Drawing.Point(221, 259);
             this.TimePicker.Name = "TimePicker";
             this.TimePicker.Size = new System.Drawing.Size(67, 20);
             this.TimePicker.TabIndex = 7;
             this.TimePicker.Value = new System.DateTime(2016, 12, 2, 12, 0, 0, 0);
+            this.TimePicker.ValueChanged += new System.EventHandler(this.TimePicker_ValueChanged);
             // 
             // StreamkeyLable
             // 
             this.StreamkeyLable.AutoSize = true;
             this.StreamkeyLable.Cursor = System.Windows.Forms.Cursors.Default;
             this.StreamkeyLable.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StreamkeyLable.Location = new System.Drawing.Point(12, 253);
+            this.StreamkeyLable.Location = new System.Drawing.Point(12, 282);
             this.StreamkeyLable.Name = "StreamkeyLable";
             this.StreamkeyLable.Size = new System.Drawing.Size(70, 14);
             this.StreamkeyLable.TabIndex = 1;

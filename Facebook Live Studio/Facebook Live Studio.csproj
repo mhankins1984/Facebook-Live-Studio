@@ -64,6 +64,12 @@
     <Compile Include="Forms\Authorise.Designer.cs">
       <DependentUpon>Authorise.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Pageselector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Pageselector.Designer.cs">
+      <DependentUpon>Pageselector.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Videocomments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Authorise.resx">
       <DependentUpon>Authorise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Pageselector.resx">
+      <DependentUpon>Pageselector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Videocomments.resx">
       <DependentUpon>Videocomments.cs</DependentUpon>
