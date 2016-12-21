@@ -38,6 +38,6 @@ namespace Facebook_Live_Studio.Forms
         {
             var Streampreview = new Streampreview ();
             Streampreview.ShowDialog(this);
-        }       
+        }
     }
 }

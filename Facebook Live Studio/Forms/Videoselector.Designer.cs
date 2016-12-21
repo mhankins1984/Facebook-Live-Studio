@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.VideoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tilte = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelectButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.Tilte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VideoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StreamKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,33 +45,16 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.VideoId,
+            this.Tilte,
             this.Status,
-            this.Tilte});
+            this.VideoId,
+            this.StreamKey});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(654, 376);
+            this.dataGridView1.Size = new System.Drawing.Size(629, 376);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // VideoId
-            // 
-            this.VideoId.HeaderText = "Video ID";
-            this.VideoId.Name = "VideoId";
-            this.VideoId.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // Tilte
-            // 
-            this.Tilte.HeaderText = "Title";
-            this.Tilte.Name = "Tilte";
-            this.Tilte.ReadOnly = true;
             // 
             // SelectButton
             // 
@@ -94,7 +78,7 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(546, 394);
+            this.CancelButton.Location = new System.Drawing.Point(521, 394);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(120, 27);
             this.CancelButton.TabIndex = 3;
@@ -102,11 +86,35 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // Tilte
+            // 
+            this.Tilte.HeaderText = "Title";
+            this.Tilte.Name = "Tilte";
+            this.Tilte.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // VideoId
+            // 
+            this.VideoId.HeaderText = "Video ID";
+            this.VideoId.Name = "VideoId";
+            this.VideoId.ReadOnly = true;
+            // 
+            // StreamKey
+            // 
+            this.StreamKey.HeaderText = "Stream Key";
+            this.StreamKey.Name = "StreamKey";
+            this.StreamKey.ReadOnly = true;
+            // 
             // Videoselector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 429);
+            this.ClientSize = new System.Drawing.Size(653, 429);
             this.ControlBox = false;
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.button2);
@@ -125,10 +133,11 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button SelectButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VideoId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tilte;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tilte;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VideoId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StreamKey;
     }
 }

@@ -44,16 +44,20 @@ namespace Facebook_Live_Studio.Forms
 
         private void Createlivevideo_Load(object sender, EventArgs e)
         {
+            //
+            // Sets time and date picker formats
+            //
             TimePicker.Format = DateTimePickerFormat.Custom;
             TimePicker.CustomFormat = "HH:mm";
             TimePicker.ShowUpDown = true;
             TimePicker.Value = System.DateTime.Now.AddMinutes(10);
             DatePicker.MinDate = System.DateTime.Now;
-
+            //
+            // Syncs date and time picker
+            //
             DateTime date = DatePicker.Value.Date;
             TimeSpan time = TimePicker.Value.TimeOfDay;
             DateTime combined = date.Add(time);
-
             TimePicker.Value = combined;
             DatePicker.Value = combined;
         }

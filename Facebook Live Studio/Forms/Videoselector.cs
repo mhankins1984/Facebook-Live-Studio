@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using Facebook;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace Facebook_Live_Studio.Forms
 {
@@ -53,6 +54,14 @@ namespace Facebook_Live_Studio.Forms
             }
         }
 
+        public string OBSLocation
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["OBSLocation"];
+            }
+        }
+
         public static string VideoID { get; set; }
         public static string VideoTitle { get; set; }
 
@@ -77,7 +86,8 @@ namespace Facebook_Live_Studio.Forms
             //
             this.dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             //
             // dataGridView select whole row
@@ -89,16 +99,29 @@ namespace Facebook_Live_Studio.Forms
             foreach (Datum d in rootobject.data)
             {
                 dataGridView1.Rows.Add();
-                dataGridView1.Rows[i].Cells[0].Value = d.id;
+                dataGridView1.Rows[i].Cells[0].Value = d.title;
                 dataGridView1.Rows[i].Cells[1].Value = d.status;
-                dataGridView1.Rows[i++].Cells[2].Value = d.title;
-             }
+                dataGridView1.Rows[i].Cells[2].Value = d.id;
+                dataGridView1.Rows[i++].Cells[3].Value = d.stream_url.Replace("rtmp://rtmp-api.facebook.com:80/rtmp/", "");
+            }
         }
 
         private void SelectButton_Click(object sender, EventArgs e)
         {
-            VideoID = dataGridView1.SelectedCells[0].Value.ToString();
-            VideoTitle = dataGridView1.SelectedCells[2].Value.ToString();
+            //
+            // Update OBS json file
+            //
+            var stream_key = dataGridView1.SelectedCells[3].Value.ToString();
+            string json = File.ReadAllText(OBSLocation);
+            dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+            jsonObj["settings"]["key"] = stream_key;
+            string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText(OBSLocation, output);
+            //
+            // Copy videoid and title to public static string
+            //
+            VideoID = dataGridView1.SelectedCells[2].Value.ToString();
+            VideoTitle = dataGridView1.SelectedCells[0].Value.ToString();
             this.Close();
         }
 
@@ -131,9 +154,10 @@ namespace Facebook_Live_Studio.Forms
             foreach (Datum d in rootobject.data)
             {
                 dataGridView1.Rows.Add();
-                dataGridView1.Rows[i].Cells[0].Value = d.id;
+                dataGridView1.Rows[i].Cells[0].Value = d.title;
                 dataGridView1.Rows[i].Cells[1].Value = d.status;
-                dataGridView1.Rows[i++].Cells[2].Value = d.title;
+                dataGridView1.Rows[i].Cells[2].Value = d.id;
+                dataGridView1.Rows[i++].Cells[3].Value = d.stream_url.Replace("rtmp://rtmp-api.facebook.com:80/rtmp/", "");
             }
         }
 
