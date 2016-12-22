@@ -14,8 +14,16 @@ namespace Facebook_Live_Studio.Forms
         {
             var Authorise = new Authorise();
             Authorise.ShowDialog(this);
+
+            if (Authorise.UserAccessToken == null) // Checks if AccessToken null
+            {
+                this.Close(); // Terminates application if AccessToken null
+            }
+
             var Selectpage = new Selectpage();
             Selectpage.ShowDialog(this);
+
+            PageNameLabel.Text = Selectpage.PageTitle; // Displays page name
         }
 
         private void Schedulelivevideo_Click(object sender, EventArgs e)

@@ -36,6 +36,7 @@
             this.ScheduleButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.PageNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,12 +108,24 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // PageNameLabel
+            // 
+            this.PageNameLabel.AutoSize = true;
+            this.PageNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PageNameLabel.ForeColor = System.Drawing.Color.White;
+            this.PageNameLabel.Location = new System.Drawing.Point(170, 50);
+            this.PageNameLabel.Name = "PageNameLabel";
+            this.PageNameLabel.Size = new System.Drawing.Size(146, 31);
+            this.PageNameLabel.TabIndex = 8;
+            this.PageNameLabel.Text = "Page Tilte";
+            // 
             // ControlCentre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(155)))));
             this.ClientSize = new System.Drawing.Size(521, 535);
+            this.Controls.Add(this.PageNameLabel);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
@@ -130,6 +143,7 @@
             this.Load += new System.EventHandler(this.ControlCentre_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -141,5 +155,6 @@
         private System.Windows.Forms.Button ScheduleButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label PageNameLabel;
     }
 }

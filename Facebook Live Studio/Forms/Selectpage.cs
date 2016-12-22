@@ -49,6 +49,7 @@ namespace Facebook_Live_Studio.Forms
 
         public static string PageAccessToken { get; set; }
         public static string PageId { get; set; }
+        public static string PageTitle { get; set; }
 
         private void Pageselector_Load(object sender, EventArgs e)
         {
@@ -89,8 +90,14 @@ namespace Facebook_Live_Studio.Forms
 
         private void SelectButton_Click(object sender, EventArgs e)
         {
+            PageTitle = PageDataGridView.SelectedCells[0].Value.ToString();
             PageAccessToken = PageDataGridView.SelectedCells[1].Value.ToString();
             PageId = PageDataGridView.SelectedCells[2].Value.ToString();
+            this.Close();
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

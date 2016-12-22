@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.PageDataGridView = new System.Windows.Forms.DataGridView();
-            this.SelectButton = new System.Windows.Forms.Button();
             this.PageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccessToken = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectButton = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PageDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,16 +52,6 @@
             this.PageDataGridView.RowHeadersVisible = false;
             this.PageDataGridView.Size = new System.Drawing.Size(435, 237);
             this.PageDataGridView.TabIndex = 0;
-            // 
-            // SelectButton
-            // 
-            this.SelectButton.Location = new System.Drawing.Point(12, 256);
-            this.SelectButton.Name = "SelectButton";
-            this.SelectButton.Size = new System.Drawing.Size(75, 23);
-            this.SelectButton.TabIndex = 1;
-            this.SelectButton.Text = "Select";
-            this.SelectButton.UseVisualStyleBackColor = true;
-            this.SelectButton.Click += new System.EventHandler(this.SelectButton_Click);
             // 
             // PageName
             // 
@@ -82,14 +73,40 @@
             this.ID.ReadOnly = true;
             this.ID.Visible = false;
             // 
+            // SelectButton
+            // 
+            this.SelectButton.Location = new System.Drawing.Point(12, 256);
+            this.SelectButton.Name = "SelectButton";
+            this.SelectButton.Size = new System.Drawing.Size(75, 23);
+            this.SelectButton.TabIndex = 1;
+            this.SelectButton.Text = "Select";
+            this.SelectButton.UseVisualStyleBackColor = true;
+            this.SelectButton.Click += new System.EventHandler(this.SelectButton_Click);
+            // 
+            // CancelButton
+            // 
+            this.CancelButton.Location = new System.Drawing.Point(373, 256);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.TabIndex = 4;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
             // Selectpage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.CancelButton;
             this.ClientSize = new System.Drawing.Size(462, 286);
+            this.ControlBox = false;
+            this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.SelectButton);
             this.Controls.Add(this.PageDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Selectpage";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -107,5 +124,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PageName;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccessToken;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.Button CancelButton;
     }
 }
