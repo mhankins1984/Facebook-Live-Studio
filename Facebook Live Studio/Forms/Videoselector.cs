@@ -46,14 +46,6 @@ namespace Facebook_Live_Studio.Forms
             public Paging paging { get; set; }
         }
 
-        public string PageId
-        {
-            get
-            {
-                return ConfigurationManager.AppSettings["PageId"];
-            }
-        }
-
         public string OBSLocation
         {
             get
@@ -67,42 +59,51 @@ namespace Facebook_Live_Studio.Forms
 
         private void Videoselector_Load(object sender, EventArgs e)
         {
-            //
-            // Get live_video data
-            //
-            var fb = new FacebookClient(Authorise.PageAccessToken);
-            var LiveVideos = string.Format(
-                    @"{0}/live_videos",
-                    this.PageId);
-            var result = fb.Get(LiveVideos);
-
-            string json = result.ToString();
-            //
-            // Deserialize JSON data
-            //
-            RootObject rootobject = JsonConvert.DeserializeObject<RootObject>(json);
-            //
-            // dataGridView1 autosize
-            //
-            this.dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            //
-            // dataGridView select whole row
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.MultiSelect = false;
-
-            int i = 0;
-
-            foreach (Datum d in rootobject.data)
+            if (Selectpage.PageId == null)
             {
-                dataGridView1.Rows.Add();
-                dataGridView1.Rows[i].Cells[0].Value = d.title;
-                dataGridView1.Rows[i].Cells[1].Value = d.status;
-                dataGridView1.Rows[i].Cells[2].Value = d.id;
-                dataGridView1.Rows[i++].Cells[3].Value = d.stream_url.Replace("rtmp://rtmp-api.facebook.com:80/rtmp/", "");
+                var Selectpage = new Selectpage();
+                Selectpage.ShowDialog(this);
+            }
+
+            else
+            {
+                //
+                // Get live_video data
+                //
+                var fb = new FacebookClient(Selectpage.PageAccessToken);
+                var LiveVideos = string.Format(
+                        @"{0}/live_videos",
+                        Selectpage.PageId);
+                var result = fb.Get(LiveVideos);
+
+                string json = result.ToString();
+                //
+                // Deserialize JSON data
+                //
+                RootObject rootobject = JsonConvert.DeserializeObject<RootObject>(json);
+                //
+                // dataGridView1 autosize
+                //
+                this.dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                this.dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                this.dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                this.dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                //
+                // dataGridView select whole row
+                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dataGridView1.MultiSelect = false;
+
+                int i = 0;
+
+                foreach (Datum d in rootobject.data)
+                {
+                    dataGridView1.Rows.Add();
+                    dataGridView1.Rows[i].Cells[0].Value = d.title;
+                    dataGridView1.Rows[i].Cells[1].Value = d.status;
+                    dataGridView1.Rows[i].Cells[2].Value = d.id;
+                    dataGridView1.Rows[i++].Cells[3].Value = d.stream_url.Replace("rtmp://rtmp-api.facebook.com:80/rtmp/", "");
+                }
             }
         }
 
@@ -127,19 +128,19 @@ namespace Facebook_Live_Studio.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            VideoID = dataGridView1.SelectedCells[0].Value.ToString();
+            VideoID = dataGridView1.SelectedCells[2].Value.ToString();
             //
             // Delete selected video
             //
-            var fbdel = new FacebookClient(Authorise.PageAccessToken);
+            var fbdel = new FacebookClient(Selectpage.PageAccessToken);
             var delresult = fbdel.Delete(VideoID);
             //
             // Get live_video data
             //
-            var fb = new FacebookClient(Authorise.PageAccessToken);
+            var fb = new FacebookClient(Selectpage.PageAccessToken);
             var LiveVideos = string.Format(
                     @"{0}/live_videos",
-                    this.PageId);
+                    Selectpage.PageId);
             var result = fb.Get(LiveVideos);
 
             string json = result.ToString();

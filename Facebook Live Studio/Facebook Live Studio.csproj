@@ -64,11 +64,11 @@
     <Compile Include="Forms\Authorise.Designer.cs">
       <DependentUpon>Authorise.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Pageselector.cs">
+    <Compile Include="Forms\Selectpage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Pageselector.Designer.cs">
-      <DependentUpon>Pageselector.cs</DependentUpon>
+    <Compile Include="Forms\Selectpage.Designer.cs">
+      <DependentUpon>Selectpage.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Videocomments.cs">
       <SubType>Form</SubType>
@@ -105,8 +105,8 @@
     <EmbeddedResource Include="Forms\Authorise.resx">
       <DependentUpon>Authorise.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Pageselector.resx">
-      <DependentUpon>Pageselector.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Selectpage.resx">
+      <DependentUpon>Selectpage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Videocomments.resx">
       <DependentUpon>Videocomments.cs</DependentUpon>
@@ -167,7 +167,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\facebook tile.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

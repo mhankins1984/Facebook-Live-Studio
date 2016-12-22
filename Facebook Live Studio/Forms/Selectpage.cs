@@ -6,9 +6,9 @@ using Newtonsoft.Json;
 
 namespace Facebook_Live_Studio.Forms
 {
-    public partial class Pageselector : Form
+    public partial class Selectpage : Form
     {
-        public Pageselector()
+        public Selectpage()
         {
             InitializeComponent();
         }
@@ -42,8 +42,25 @@ namespace Facebook_Live_Studio.Forms
             public Paging paging { get; set; }
         }
 
+        private void PageDataGridView_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            e.PaintParts &= ~DataGridViewPaintParts.Focus;
+        }
+
+        public static string PageAccessToken { get; set; }
+        public static string PageId { get; set; }
+
         private void Pageselector_Load(object sender, EventArgs e)
         {
+            //
+            // PageDataGridView select only one and whole row
+            //
+            PageDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            PageDataGridView.MultiSelect = false;
+            PageDataGridView.RowPrePaint += new DataGridViewRowPrePaintEventHandler(PageDataGridView_RowPrePaint);
+            //
+            // PageDataGridView Autosize
+            PageDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             //
             // Get page data
             //
@@ -65,8 +82,16 @@ namespace Facebook_Live_Studio.Forms
             {
                 PageDataGridView.Rows.Add();
                 PageDataGridView.Rows[i].Cells[0].Value = d.name;
-                PageDataGridView.Rows[i++].Cells[1].Value = d.access_token;
+                PageDataGridView.Rows[i].Cells[1].Value = d.access_token;
+                PageDataGridView.Rows[i++].Cells[2].Value = d.id;
             }
+        }
+
+        private void SelectButton_Click(object sender, EventArgs e)
+        {
+            PageAccessToken = PageDataGridView.SelectedCells[1].Value.ToString();
+            PageId = PageDataGridView.SelectedCells[2].Value.ToString();
+            this.Close();
         }
     }
 }

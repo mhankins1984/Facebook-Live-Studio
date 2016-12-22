@@ -40,16 +40,9 @@ namespace Facebook_Live_Studio.Forms
             }
         }
 
-        public string PageId
-        {
-            get
-            {
-                return ConfigurationManager.AppSettings["PageId"];
-            }
-        }
 
         public static string UserAccessToken { get; set; }
-        public static string PageAccessToken { get; set; }
+       // public static string PageAccessToken { get; set; }
 
 
         private void LoadAuthorise(object sender, EventArgs e)
@@ -76,16 +69,6 @@ namespace Facebook_Live_Studio.Forms
                 this.Close();
                 url = (new Regex("#")).Replace(url, "?", 1);
                 UserAccessToken = System.Web.HttpUtility.ParseQueryString(url).Get("access_token");
-
-                //
-                // get page access token
-                //
-                var fbpat = new FacebookClient(UserAccessToken);
-                var GetPageAccessToken = string.Format(
-                    @"{0}?fields=access_token",
-                    this.PageId);
-                dynamic token = fbpat.Get(GetPageAccessToken);
-                PageAccessToken = token.access_token;
 
                 try
                 {

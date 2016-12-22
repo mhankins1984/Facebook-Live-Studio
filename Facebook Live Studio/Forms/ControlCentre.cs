@@ -14,6 +14,8 @@ namespace Facebook_Live_Studio.Forms
         {
             var Authorise = new Authorise();
             Authorise.ShowDialog(this);
+            var Selectpage = new Selectpage();
+            Selectpage.ShowDialog(this);
         }
 
         private void Schedulelivevideo_Click(object sender, EventArgs e)
@@ -38,6 +40,13 @@ namespace Facebook_Live_Studio.Forms
         {
             var Streampreview = new Streampreview ();
             Streampreview.ShowDialog(this);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var Selectpage = new Selectpage();
+            Selectpage.ShowDialog(this);
+
         }
     }
 }

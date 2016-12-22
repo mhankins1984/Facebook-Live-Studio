@@ -27,39 +27,41 @@ namespace Facebook_Live_Studio.Forms
             TimePicker.Value = System.DateTime.Now.AddMinutes(15);
             DatePicker.Value = System.DateTime.Now.AddMinutes(15);
             DatePicker.MinDate = System.DateTime.Now.AddMinutes(15);
-            DatePicker.MaxDate = System.DateTime.Now.AddDays(7);
+            DatePicker.MaxDate = System.DateTime.Now.AddHours(168);
         }
         //
         // Get required app.config values
         //
-        public string PageId
-        {
-            get
-            {
-                return ConfigurationManager.AppSettings["PageId"];
-            }
-        }
 
         public static string VideoId { get; set; }
 
         private void Createlivevideo_Load(object sender, EventArgs e)
         {
-            //
-            // Sets time and date picker formats
-            //
-            TimePicker.Format = DateTimePickerFormat.Custom;
-            TimePicker.CustomFormat = "HH:mm";
-            TimePicker.ShowUpDown = true;
-            TimePicker.Value = System.DateTime.Now.AddMinutes(10);
-            DatePicker.MinDate = System.DateTime.Now;
-            //
-            // Syncs date and time picker
-            //
-            DateTime date = DatePicker.Value.Date;
-            TimeSpan time = TimePicker.Value.TimeOfDay;
-            DateTime combined = date.Add(time);
-            TimePicker.Value = combined;
-            DatePicker.Value = combined;
+            if (Selectpage.PageId == null)
+            {
+                var Selectpage = new Selectpage();
+                Selectpage.ShowDialog(this);
+            }
+
+            else
+            {
+                //
+                // Sets time and date picker formats
+                //
+                TimePicker.Format = DateTimePickerFormat.Custom;
+                TimePicker.CustomFormat = "HH:mm";
+                TimePicker.ShowUpDown = true;
+                TimePicker.Value = System.DateTime.Now.AddMinutes(10);
+                DatePicker.MinDate = System.DateTime.Now;
+                //
+                // Syncs date and time picker
+                //
+                DateTime date = DatePicker.Value.Date;
+                TimeSpan time = TimePicker.Value.TimeOfDay;
+                DateTime combined = date.Add(time);
+                TimePicker.Value = combined;
+                DatePicker.Value = combined;
+            }
         }
 
         private void VideoTitleTextBox_Leave(object sender, EventArgs e)
@@ -137,7 +139,9 @@ namespace Facebook_Live_Studio.Forms
 
                 else
                 {
-                    System.Windows.Forms.MessageBox.Show("Scheduled live videos must be scheduled between 15 minutes and 7 days (168 hours) from when you create them.", "Information");
+                    TimePicker.Value = System.DateTime.Now.AddHours(167);
+                    DatePicker.Value = System.DateTime.Now.AddHours(167);
+                    System.Windows.Forms.MessageBox.Show("Scheduled live videos must be scheduled between 15 minutes and 7 days (168 hours) from when you create them.", "Information");                        
                 }
             }          
         }
@@ -151,15 +155,15 @@ namespace Facebook_Live_Studio.Forms
             var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
             var unixDateTime = (dateTime.ToUniversalTime() - epoch).TotalSeconds;
 
-            var fb = new FacebookClient(Authorise.PageAccessToken);
+            var fb = new FacebookClient(Selectpage.PageAccessToken);
             var PageLiveVideos = string.Format(
                 @"{0}/live_videos",
-                this.PageId);
+                Selectpage.PageId);
             dynamic result = fb.Post(PageLiveVideos, new { published = false });
 
             VideoId = result.id;
 
-            var fbupdate = new FacebookClient(Authorise.PageAccessToken);
+            var fbupdate = new FacebookClient(Selectpage.PageAccessToken);
 
             fbupdate.Post(VideoId, new { title = VideoTitleTextBox.Text });
             fbupdate.Post(VideoId, new { description = VideoDescriptionTextBox.Text });

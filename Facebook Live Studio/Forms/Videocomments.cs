@@ -178,7 +178,7 @@ namespace Facebook_Live_Studio.Forms
             //
             // Get video comments data
             //
-            var fb = new FacebookClient(Authorise.PageAccessToken);
+            var fb = new FacebookClient(Selectpage.PageAccessToken);
             var LiveVideosComments = string.Format(
                     @"{0}/comments?limit=1000&order=reverse_chronological",
                     Videoselector.VideoID);
@@ -193,7 +193,7 @@ namespace Facebook_Live_Studio.Forms
             //
             this.CommentsDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.CommentsDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            CommentsDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            this.CommentsDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             // dataGridView text wrap
             //
             this.CommentsDataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
@@ -228,7 +228,7 @@ namespace Facebook_Live_Studio.Forms
         {
             timer1 = new System.Windows.Forms.Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 5000; // in miliseconds
+            timer1.Interval = 30000; // in miliseconds
             timer1.Start();
             timer1.Enabled = true;
         }
@@ -242,11 +242,11 @@ namespace Facebook_Live_Studio.Forms
 
             else
             {
-                timer1.Interval = 5000; // in miliseconds
+                timer1.Interval = 30000; // in miliseconds
                 //
                 // Get video comments data
                 //
-                var fb = new FacebookClient(Authorise.PageAccessToken);
+                var fb = new FacebookClient(Selectpage.PageAccessToken);
                 var LiveVideosComments = string.Format(
                         @"{0}/comments?limit=1000&order=reverse_chronological",
                         Videoselector.VideoID);
@@ -273,7 +273,7 @@ namespace Facebook_Live_Studio.Forms
 
         private void CommentsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            timer1.Interval = 30000; // in miliseconds
+            timer1.Interval = 60000; // in miliseconds
         }
 
         private void SelectButton_Click(object sender, EventArgs e)
@@ -314,6 +314,10 @@ namespace Facebook_Live_Studio.Forms
                             // Hide CommentID from datagridview view
                             //
                             QueDataGridView.Columns[0].Visible = false;
+                            //
+                            // Refresh CommentsDataGridView
+                            //
+                            timer1.Interval = 1; // in miliseconds
                         }
 
                         else
@@ -340,6 +344,10 @@ namespace Facebook_Live_Studio.Forms
 
                             sendastring(V5);
                             current_still = next_still;
+                            //
+                            // Refresh CommentsDataGridView
+                            //
+                            timer1.Interval = 1; // in miliseconds
                         }
                     }
                 }
@@ -349,6 +357,9 @@ namespace Facebook_Live_Studio.Forms
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
+            //
+            // Refresh CommentsDataGridView
+            //
             timer1.Interval = 1; // in miliseconds
         }
 

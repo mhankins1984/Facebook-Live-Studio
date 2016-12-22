@@ -55,7 +55,8 @@
             this.StreamkeyTextBox.Name = "StreamkeyTextBox";
             this.StreamkeyTextBox.ReadOnly = true;
             this.StreamkeyTextBox.Size = new System.Drawing.Size(295, 20);
-            this.StreamkeyTextBox.TabIndex = 0;
+            this.StreamkeyTextBox.TabIndex = 1;
+            this.StreamkeyTextBox.TabStop = false;
             this.StreamkeyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel1
@@ -91,7 +92,7 @@
             this.VideoDescriptionTextBox.Multiline = true;
             this.VideoDescriptionTextBox.Name = "VideoDescriptionTextBox";
             this.VideoDescriptionTextBox.Size = new System.Drawing.Size(250, 168);
-            this.VideoDescriptionTextBox.TabIndex = 3;
+            this.VideoDescriptionTextBox.TabIndex = 2;
             // 
             // VideoTitleLabel
             // 
@@ -122,7 +123,7 @@
             this.VideotagsTextBox.Location = new System.Drawing.Point(25, 73);
             this.VideotagsTextBox.Name = "VideotagsTextBox";
             this.VideotagsTextBox.Size = new System.Drawing.Size(250, 20);
-            this.VideotagsTextBox.TabIndex = 3;
+            this.VideotagsTextBox.TabIndex = 1;
             // 
             // VideoTitleTextBox
             // 
@@ -131,7 +132,7 @@
             this.VideoTitleTextBox.Location = new System.Drawing.Point(25, 29);
             this.VideoTitleTextBox.Name = "VideoTitleTextBox";
             this.VideoTitleTextBox.Size = new System.Drawing.Size(250, 20);
-            this.VideoTitleTextBox.TabIndex = 2;
+            this.VideoTitleTextBox.TabIndex = 0;
             // 
             // panel2
             // 
@@ -174,7 +175,7 @@
             this.DatePicker.Location = new System.Drawing.Point(15, 259);
             this.DatePicker.Name = "DatePicker";
             this.DatePicker.Size = new System.Drawing.Size(200, 20);
-            this.DatePicker.TabIndex = 6;
+            this.DatePicker.TabIndex = 3;
             this.DatePicker.ValueChanged += new System.EventHandler(this.DatePicker_ValueChanged);
             // 
             // TimePicker
@@ -182,7 +183,7 @@
             this.TimePicker.Location = new System.Drawing.Point(221, 259);
             this.TimePicker.Name = "TimePicker";
             this.TimePicker.Size = new System.Drawing.Size(67, 20);
-            this.TimePicker.TabIndex = 7;
+            this.TimePicker.TabIndex = 4;
             this.TimePicker.Value = new System.DateTime(2016, 12, 2, 12, 0, 0, 0);
             this.TimePicker.ValueChanged += new System.EventHandler(this.TimePicker_ValueChanged);
             // 
@@ -199,11 +200,11 @@
             // 
             // ScheduleButton
             // 
-            this.ScheduleButton.Location = new System.Drawing.Point(627, 420);
+            this.ScheduleButton.Location = new System.Drawing.Point(672, 410);
             this.ScheduleButton.Name = "ScheduleButton";
-            this.ScheduleButton.Size = new System.Drawing.Size(120, 30);
-            this.ScheduleButton.TabIndex = 2;
-            this.ScheduleButton.Text = "Schedule live video";
+            this.ScheduleButton.Size = new System.Drawing.Size(75, 23);
+            this.ScheduleButton.TabIndex = 5;
+            this.ScheduleButton.Text = "Schedule";
             this.ScheduleButton.UseVisualStyleBackColor = true;
             this.ScheduleButton.Click += new System.EventHandler(this.ScheduleButton_Click);
             // 
@@ -211,8 +212,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(754, 462);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(155)))));
+            this.ClientSize = new System.Drawing.Size(754, 438);
             this.Controls.Add(this.ScheduleButton);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;

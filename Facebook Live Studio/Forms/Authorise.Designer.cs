@@ -53,7 +53,7 @@
             this.Name = "Authorise";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Authorise with Facebook";
+            this.Text = "Authorise with facebook";
             this.Load += new System.EventHandler(this.LoadAuthorise);
             this.ResumeLayout(false);
 

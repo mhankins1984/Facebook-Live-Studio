@@ -83,11 +83,11 @@
             // SelectButton
             // 
             this.SelectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.SelectButton.Location = new System.Drawing.Point(12, 916);
+            this.SelectButton.Location = new System.Drawing.Point(12, 898);
             this.SelectButton.Name = "SelectButton";
-            this.SelectButton.Size = new System.Drawing.Size(120, 27);
+            this.SelectButton.Size = new System.Drawing.Size(75, 23);
             this.SelectButton.TabIndex = 3;
-            this.SelectButton.Text = "Select Comment";
+            this.SelectButton.Text = "Select";
             this.SelectButton.UseVisualStyleBackColor = true;
             this.SelectButton.Click += new System.EventHandler(this.SelectButton_Click);
             // 
@@ -107,21 +107,21 @@
             // ClearButton
             // 
             this.ClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClearButton.Location = new System.Drawing.Point(138, 916);
+            this.ClearButton.Location = new System.Drawing.Point(93, 898);
             this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(120, 27);
+            this.ClearButton.Size = new System.Drawing.Size(75, 23);
             this.ClearButton.TabIndex = 5;
-            this.ClearButton.Text = "Clear and Refresh";
+            this.ClearButton.Text = "Clear";
             this.ClearButton.UseVisualStyleBackColor = true;
             this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // PlayButton
             // 
-            this.PlayButton.Location = new System.Drawing.Point(992, 916);
+            this.PlayButton.Location = new System.Drawing.Point(992, 898);
             this.PlayButton.Name = "PlayButton";
-            this.PlayButton.Size = new System.Drawing.Size(120, 27);
+            this.PlayButton.Size = new System.Drawing.Size(75, 23);
             this.PlayButton.TabIndex = 10;
-            this.PlayButton.Text = "Play Comment";
+            this.PlayButton.Text = "Play";
             this.PlayButton.UseVisualStyleBackColor = true;
             this.PlayButton.Click += new System.EventHandler(this.playButton_Click);
             // 
@@ -164,6 +164,7 @@
             this.Controls.Add(this.CommentsDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Videocomments";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Comments";
             this.Load += new System.EventHandler(this.Videocomments_Load);
