@@ -9,6 +9,7 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Configuration;
 using System.Linq;
+using System.IO;
 
 namespace Facebook_Live_Studio.Forms
 {
@@ -424,6 +425,14 @@ namespace Facebook_Live_Studio.Forms
             else {
                 System.Windows.Forms.MessageBox.Show("No comment to play.", "Information");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataTable dT = LogTable;
+            DataSet dS = new DataSet();
+            dS.Tables.Add(dT);
+            dS.WriteXml(File.OpenWrite("Logs/comments.xml"));
         }
     }
 }

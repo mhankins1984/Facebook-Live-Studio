@@ -1,6 +1,6 @@
 ﻿namespace Facebook_Live_Studio.Forms
 {
-    partial class Schedulelivevideo
+    partial class Golive
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.StreamkeyTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.VideoDescriptionTextBox = new System.Windows.Forms.TextBox();
@@ -36,29 +35,10 @@
             this.VideotagsLabel = new System.Windows.Forms.Label();
             this.VideotagsTextBox = new System.Windows.Forms.TextBox();
             this.VideoTitleTextBox = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.DatePicker = new System.Windows.Forms.DateTimePicker();
-            this.TimePicker = new System.Windows.Forms.DateTimePicker();
-            this.StreamkeyLable = new System.Windows.Forms.Label();
-            this.ScheduleButton = new System.Windows.Forms.Button();
+            this.GoliveButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // StreamkeyTextBox
-            // 
-            this.StreamkeyTextBox.BackColor = System.Drawing.Color.White;
-            this.StreamkeyTextBox.Font = new System.Drawing.Font("Arial", 8F);
-            this.StreamkeyTextBox.Location = new System.Drawing.Point(15, 299);
-            this.StreamkeyTextBox.Name = "StreamkeyTextBox";
-            this.StreamkeyTextBox.ReadOnly = true;
-            this.StreamkeyTextBox.Size = new System.Drawing.Size(295, 20);
-            this.StreamkeyTextBox.TabIndex = 1;
-            this.StreamkeyTextBox.TabStop = false;
-            this.StreamkeyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel1
             // 
@@ -69,11 +49,10 @@
             this.panel1.Controls.Add(this.VideotagsLabel);
             this.panel1.Controls.Add(this.VideotagsTextBox);
             this.panel1.Controls.Add(this.VideoTitleTextBox);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(7, 72);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(740, 332);
-            this.panel1.TabIndex = 1;
+            this.panel1.Size = new System.Drawing.Size(310, 332);
+            this.panel1.TabIndex = 2;
             // 
             // label3
             // 
@@ -135,131 +114,60 @@
             this.VideoTitleTextBox.Size = new System.Drawing.Size(250, 20);
             this.VideoTitleTextBox.TabIndex = 0;
             // 
-            // panel2
+            // GoliveButton
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.DatePicker);
-            this.panel2.Controls.Add(this.TimePicker);
-            this.panel2.Controls.Add(this.StreamkeyLable);
-            this.panel2.Controls.Add(this.StreamkeyTextBox);
-            this.panel2.Location = new System.Drawing.Point(311, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(429, 332);
-            this.panel2.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(290, 262);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 14);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "UTC";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 242);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 14);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Scheduled start time";
-            // 
-            // DatePicker
-            // 
-            this.DatePicker.Location = new System.Drawing.Point(15, 259);
-            this.DatePicker.Name = "DatePicker";
-            this.DatePicker.Size = new System.Drawing.Size(200, 20);
-            this.DatePicker.TabIndex = 3;
-            this.DatePicker.ValueChanged += new System.EventHandler(this.DatePicker_ValueChanged);
-            // 
-            // TimePicker
-            // 
-            this.TimePicker.Location = new System.Drawing.Point(221, 259);
-            this.TimePicker.Name = "TimePicker";
-            this.TimePicker.Size = new System.Drawing.Size(67, 20);
-            this.TimePicker.TabIndex = 4;
-            this.TimePicker.Value = new System.DateTime(2016, 12, 2, 12, 0, 0, 0);
-            this.TimePicker.ValueChanged += new System.EventHandler(this.TimePicker_ValueChanged);
-            // 
-            // StreamkeyLable
-            // 
-            this.StreamkeyLable.AutoSize = true;
-            this.StreamkeyLable.Cursor = System.Windows.Forms.Cursors.Default;
-            this.StreamkeyLable.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StreamkeyLable.Location = new System.Drawing.Point(12, 282);
-            this.StreamkeyLable.Name = "StreamkeyLable";
-            this.StreamkeyLable.Size = new System.Drawing.Size(70, 14);
-            this.StreamkeyLable.TabIndex = 1;
-            this.StreamkeyLable.Text = "Stream key";
-            // 
-            // ScheduleButton
-            // 
-            this.ScheduleButton.Location = new System.Drawing.Point(672, 410);
-            this.ScheduleButton.Name = "ScheduleButton";
-            this.ScheduleButton.Size = new System.Drawing.Size(75, 23);
-            this.ScheduleButton.TabIndex = 5;
-            this.ScheduleButton.Text = "Schedule";
-            this.ScheduleButton.UseVisualStyleBackColor = true;
-            this.ScheduleButton.Click += new System.EventHandler(this.ScheduleButton_Click);
+            this.GoliveButton.Location = new System.Drawing.Point(247, 350);
+            this.GoliveButton.Name = "GoliveButton";
+            this.GoliveButton.Size = new System.Drawing.Size(75, 23);
+            this.GoliveButton.TabIndex = 6;
+            this.GoliveButton.Text = "Go Live";
+            this.GoliveButton.UseVisualStyleBackColor = true;
+            this.GoliveButton.Click += new System.EventHandler(this.GoliveButton_Click);
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(7, 410);
+            this.CancelButton.Location = new System.Drawing.Point(12, 349);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 6;
+            this.CancelButton.TabIndex = 7;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // Schedulelivevideo
+            // Golive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(754, 438);
+            this.ClientSize = new System.Drawing.Size(334, 384);
             this.ControlBox = false;
             this.Controls.Add(this.CancelButton);
-            this.Controls.Add(this.ScheduleButton);
+            this.Controls.Add(this.GoliveButton);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Schedulelivevideo";
+            this.MaximumSize = new System.Drawing.Size(350, 418);
+            this.MinimumSize = new System.Drawing.Size(350, 418);
+            this.Name = "Golive";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Schedule live video";
-            this.Load += new System.EventHandler(this.Createlivevideo_Load);
+            this.Text = "Go Live";
+            this.Load += new System.EventHandler(this.Golive_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox StreamkeyTextBox;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label StreamkeyLable;
-        private System.Windows.Forms.TextBox VideotagsTextBox;
-        private System.Windows.Forms.TextBox VideoTitleTextBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox VideoDescriptionTextBox;
         private System.Windows.Forms.Label VideoTitleLabel;
         private System.Windows.Forms.Label VideotagsLabel;
-        private System.Windows.Forms.Button ScheduleButton;
-        private System.Windows.Forms.TextBox VideoDescriptionTextBox;
-        private System.Windows.Forms.DateTimePicker TimePicker;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker DatePicker;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox VideotagsTextBox;
+        private System.Windows.Forms.TextBox VideoTitleTextBox;
+        private System.Windows.Forms.Button GoliveButton;
         private System.Windows.Forms.Button CancelButton;
     }
 }

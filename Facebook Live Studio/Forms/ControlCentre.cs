@@ -20,6 +20,7 @@ namespace Facebook_Live_Studio.Forms
                 this.Close(); // Terminates application if AccessToken null
             }
 
+            this.Show();
             var Selectpage = new Selectpage();
             Selectpage.ShowDialog(this);
 
@@ -55,6 +56,12 @@ namespace Facebook_Live_Studio.Forms
             var Selectpage = new Selectpage();
             Selectpage.ShowDialog(this);
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var Golive = new Golive();
+            Golive.ShowDialog(this);
         }
     }
 }

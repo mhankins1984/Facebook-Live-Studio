@@ -85,9 +85,7 @@ namespace Facebook_Live_Studio.Forms
                 // dataGridView1 autosize
                 //
                 this.dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                this.dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                this.dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                this.dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                this.dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
                 //
                 // dataGridView select whole row
@@ -99,8 +97,8 @@ namespace Facebook_Live_Studio.Forms
                 foreach (Datum d in rootobject.data)
                 {
                     dataGridView1.Rows.Add();
-                    dataGridView1.Rows[i].Cells[0].Value = d.title;
-                    dataGridView1.Rows[i].Cells[1].Value = d.status;
+                    dataGridView1.Rows[i].Cells[0].Value = d.status;
+                    dataGridView1.Rows[i].Cells[1].Value = d.title;
                     dataGridView1.Rows[i].Cells[2].Value = d.id;
                     dataGridView1.Rows[i++].Cells[3].Value = d.stream_url.Replace("rtmp://rtmp-api.facebook.com:80/rtmp/", "");
                 }
@@ -122,45 +120,9 @@ namespace Facebook_Live_Studio.Forms
             // Copy videoid and title to public static string
             //
             VideoID = dataGridView1.SelectedCells[2].Value.ToString();
-            VideoTitle = dataGridView1.SelectedCells[0].Value.ToString();
+            VideoTitle = dataGridView1.SelectedCells[1].Value.ToString();
             this.Close();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            VideoID = dataGridView1.SelectedCells[2].Value.ToString();
-            //
-            // Delete selected video
-            //
-            var fbdel = new FacebookClient(Selectpage.PageAccessToken);
-            var delresult = fbdel.Delete(VideoID);
-            //
-            // Get live_video data
-            //
-            var fb = new FacebookClient(Selectpage.PageAccessToken);
-            var LiveVideos = string.Format(
-                    @"{0}/live_videos",
-                    Selectpage.PageId);
-            var result = fb.Get(LiveVideos);
-
-            string json = result.ToString();
-            //
-            // Deserialize JSON data
-            //
-            RootObject rootobject = JsonConvert.DeserializeObject<RootObject>(json);
-
-            int i = 0;
-
-            dataGridView1.Rows.Clear();
-            foreach (Datum d in rootobject.data)
-            {
-                dataGridView1.Rows.Add();
-                dataGridView1.Rows[i].Cells[0].Value = d.title;
-                dataGridView1.Rows[i].Cells[1].Value = d.status;
-                dataGridView1.Rows[i].Cells[2].Value = d.id;
-                dataGridView1.Rows[i++].Cells[3].Value = d.stream_url.Replace("rtmp://rtmp-api.facebook.com:80/rtmp/", "");
-            }
-        }
+        }        
 
         private void CancelButton_Click(object sender, EventArgs e)
         {

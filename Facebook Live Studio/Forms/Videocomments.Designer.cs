@@ -32,6 +32,7 @@
             this.PlayButton = new System.Windows.Forms.Button();
             this.PlayDataGridView = new System.Windows.Forms.DataGridView();
             this.VideoTitleLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CommentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QueDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayDataGridView)).BeginInit();
@@ -149,12 +150,23 @@
             this.VideoTitleLabel.TabIndex = 0;
             this.VideoTitleLabel.Text = "Video Title";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1232, 897);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Videocomments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1904, 966);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.VideoTitleLabel);
             this.Controls.Add(this.PlayDataGridView);
             this.Controls.Add(this.PlayButton);
@@ -187,5 +199,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CommentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Namecolumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
+        private System.Windows.Forms.Button button1;
     }
 }

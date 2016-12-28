@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Configuration;
 using System.Windows.Forms;
 using Facebook;
-using System.Drawing;
 
 namespace Facebook_Live_Studio.Forms
 {
@@ -12,14 +10,6 @@ namespace Facebook_Live_Studio.Forms
         public Schedulelivevideo()
         {
             InitializeComponent();
-            VideoTitleTextBox.ForeColor = SystemColors.GrayText;
-            VideotagsTextBox.ForeColor = SystemColors.GrayText;
-            VideoTitleTextBox.Text = "Add a title";
-            VideotagsTextBox.Text = "Add tags (e.g.football, cats, etc.)";
-            VideoTitleTextBox.Leave += new System.EventHandler(this.VideoTitleTextBox_Leave);
-            VideoTitleTextBox.Enter += new System.EventHandler(this.VideoTitleTextBox_Enter);
-            VideotagsTextBox.Leave += new System.EventHandler(this.VideotagsTextBox_Leave);
-            VideotagsTextBox.Enter += new System.EventHandler(this.VideotagsTextBox_Enter);
             //
             // Set facebook date and time limits
             //
@@ -63,43 +53,7 @@ namespace Facebook_Live_Studio.Forms
                 DatePicker.Value = combined;
             }
         }
-
-        private void VideoTitleTextBox_Leave(object sender, EventArgs e)
-        {
-            if (VideoTitleTextBox.Text.Length == 0)
-            {
-                VideoTitleTextBox.Text = "Add a title";
-                VideoTitleTextBox.ForeColor = SystemColors.GrayText;
-            }
-        }
-
-        private void VideoTitleTextBox_Enter(object sender, EventArgs e)
-        {
-            if (VideoTitleTextBox.Text == "Add a title")
-            {
-                VideoTitleTextBox.Text = "";
-                VideoTitleTextBox.ForeColor = SystemColors.WindowText;
-            }
-        }
-
-        private void VideotagsTextBox_Leave(object sender, EventArgs e)
-        {
-            if (VideotagsTextBox.Text.Length == 0)
-            {
-                VideotagsTextBox.Text = "Add tags (e.g.football, cats, etc.)";
-                VideotagsTextBox.ForeColor = SystemColors.GrayText;
-            }
-        }
-
-        private void VideotagsTextBox_Enter(object sender, EventArgs e)
-        {
-            if (VideotagsTextBox.Text == "Add tags (e.g.football, cats, etc.)")
-            {
-                VideotagsTextBox.Text = "";
-                VideotagsTextBox.ForeColor = SystemColors.WindowText;
-            }
-        }
-
+ 
         private void DatePicker_ValueChanged(object sender, EventArgs e)
         {
             DateTime date = DatePicker.Value.Date;
@@ -171,6 +125,11 @@ namespace Facebook_Live_Studio.Forms
 
             var stream_key = result.stream_url.Replace("rtmp://rtmp-api.facebook.com:80/rtmp/", "");
             StreamkeyTextBox.Text = stream_key;
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
