@@ -32,7 +32,6 @@
             this.PlyBtn = new System.Windows.Forms.Button();
             this.PlayDataGridView = new System.Windows.Forms.DataGridView();
             this.VideoTitleLbl = new System.Windows.Forms.Label();
-            this.Btn1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CommentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QueDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayDataGridView)).BeginInit();
@@ -150,23 +149,12 @@
             this.VideoTitleLbl.TabIndex = 0;
             this.VideoTitleLbl.Text = "Video Title";
             // 
-            // Btn1
-            // 
-            this.Btn1.Location = new System.Drawing.Point(1232, 897);
-            this.Btn1.Name = "Btn1";
-            this.Btn1.Size = new System.Drawing.Size(75, 23);
-            this.Btn1.TabIndex = 12;
-            this.Btn1.Text = "Btn1";
-            this.Btn1.UseVisualStyleBackColor = true;
-            this.Btn1.Click += new System.EventHandler(this.Btn1_Click);
-            // 
             // Videocomments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1904, 966);
-            this.Controls.Add(this.Btn1);
             this.Controls.Add(this.VideoTitleLbl);
             this.Controls.Add(this.PlayDataGridView);
             this.Controls.Add(this.PlyBtn);
@@ -179,6 +167,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Comments";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Videocomments_Closing);
             this.Load += new System.EventHandler(this.Videocomments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CommentsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QueDataGridView)).EndInit();
@@ -199,6 +188,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CommentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Namecolumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
-        private System.Windows.Forms.Button Btn1;
     }
 }

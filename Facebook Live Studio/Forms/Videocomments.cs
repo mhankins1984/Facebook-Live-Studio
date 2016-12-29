@@ -168,12 +168,15 @@ namespace Facebook_Live_Studio.Forms
             QueTable.Columns.Add("CommentID", typeof(string));
             QueTable.Columns.Add("Name", typeof(string));
             QueTable.Columns.Add("Comment", typeof(string));
+
             PlayTable.Columns.Add("CommentID", typeof(string));
             PlayTable.Columns.Add("Name", typeof(string));
             PlayTable.Columns.Add("Comment", typeof(string));
+
             LogTable.Columns.Add("CommentID", typeof(string));
             LogTable.Columns.Add("Name", typeof(string));
             LogTable.Columns.Add("Comment", typeof(string));
+            LogTable.Columns.Add("TimeSelected", typeof(string));
 
             InitTimer();
             //
@@ -304,7 +307,7 @@ namespace Facebook_Live_Studio.Forms
                         {
                             QueTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value); // Add to que table
                             QueDataGridView.DataSource = QueTable;
-                            LogTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value); // Add to log table
+                            LogTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value, System.DateTime.Now.ToLongTimeString()); // Add to log table
                             //
                             // Autosize
                             //
@@ -325,8 +328,7 @@ namespace Facebook_Live_Studio.Forms
                         {
                             PlayTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value); // Add to play table
                             PlayDataGridView.DataSource = PlayTable;
-                            LogTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value); // Add to log table
-                            //
+                            LogTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value, System.DateTime.Now.ToLongTimeString()); // Add to log table
                             // Autosize
                             //
                             this.PlayDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -422,12 +424,13 @@ namespace Facebook_Live_Studio.Forms
                     current_still = next_still;
                 }
             }
-            else {
+            else
+            {
                 System.Windows.Forms.MessageBox.Show("No comment to play.", "Information");
             }
         }
 
-        private void Btn1_Click(object sender, EventArgs e)
+        private void Videocomments_Closing(object sender, FormClosingEventArgs e)
         {
             string date = System.DateTime.Now.ToShortDateString().Replace("/", "-");
             string filename = @"Logs\" + date + " " + VideoTitleLbl.Text + ".xml";
@@ -435,8 +438,6 @@ namespace Facebook_Live_Studio.Forms
             DataSet dS = new DataSet();
             dS.Tables.Add(dT);
             dS.WriteXml(File.OpenWrite(filename));
-
-
         }
     }
 }
