@@ -26,13 +26,13 @@
             this.CommentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Namecolumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectButton = new System.Windows.Forms.Button();
+            this.SelBtn = new System.Windows.Forms.Button();
             this.QueDataGridView = new System.Windows.Forms.DataGridView();
-            this.ClearButton = new System.Windows.Forms.Button();
-            this.PlayButton = new System.Windows.Forms.Button();
+            this.ClrBtn = new System.Windows.Forms.Button();
+            this.PlyBtn = new System.Windows.Forms.Button();
             this.PlayDataGridView = new System.Windows.Forms.DataGridView();
-            this.VideoTitleLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.VideoTitleLbl = new System.Windows.Forms.Label();
+            this.Btn1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CommentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QueDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayDataGridView)).BeginInit();
@@ -81,16 +81,16 @@
             this.Comment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Comment.Width = 500;
             // 
-            // SelectButton
+            // SelBtn
             // 
-            this.SelectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.SelectButton.Location = new System.Drawing.Point(12, 898);
-            this.SelectButton.Name = "SelectButton";
-            this.SelectButton.Size = new System.Drawing.Size(75, 23);
-            this.SelectButton.TabIndex = 3;
-            this.SelectButton.Text = "Select";
-            this.SelectButton.UseVisualStyleBackColor = true;
-            this.SelectButton.Click += new System.EventHandler(this.SelectButton_Click);
+            this.SelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SelBtn.Location = new System.Drawing.Point(12, 898);
+            this.SelBtn.Name = "SelBtn";
+            this.SelBtn.Size = new System.Drawing.Size(75, 23);
+            this.SelBtn.TabIndex = 3;
+            this.SelBtn.Text = "Select";
+            this.SelBtn.UseVisualStyleBackColor = true;
+            this.SelBtn.Click += new System.EventHandler(this.SelBtn_Click);
             // 
             // QueDataGridView
             // 
@@ -105,26 +105,26 @@
             this.QueDataGridView.Size = new System.Drawing.Size(900, 702);
             this.QueDataGridView.TabIndex = 4;
             // 
-            // ClearButton
+            // ClrBtn
             // 
-            this.ClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClearButton.Location = new System.Drawing.Point(93, 898);
-            this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(75, 23);
-            this.ClearButton.TabIndex = 5;
-            this.ClearButton.Text = "Clear";
-            this.ClearButton.UseVisualStyleBackColor = true;
-            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            this.ClrBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClrBtn.Location = new System.Drawing.Point(93, 898);
+            this.ClrBtn.Name = "ClrBtn";
+            this.ClrBtn.Size = new System.Drawing.Size(75, 23);
+            this.ClrBtn.TabIndex = 5;
+            this.ClrBtn.Text = "Clear";
+            this.ClrBtn.UseVisualStyleBackColor = true;
+            this.ClrBtn.Click += new System.EventHandler(this.ClrBtn_Click);
             // 
-            // PlayButton
+            // PlyBtn
             // 
-            this.PlayButton.Location = new System.Drawing.Point(992, 898);
-            this.PlayButton.Name = "PlayButton";
-            this.PlayButton.Size = new System.Drawing.Size(75, 23);
-            this.PlayButton.TabIndex = 10;
-            this.PlayButton.Text = "Play";
-            this.PlayButton.UseVisualStyleBackColor = true;
-            this.PlayButton.Click += new System.EventHandler(this.playButton_Click);
+            this.PlyBtn.Location = new System.Drawing.Point(992, 898);
+            this.PlyBtn.Name = "PlyBtn";
+            this.PlyBtn.Size = new System.Drawing.Size(75, 23);
+            this.PlyBtn.TabIndex = 10;
+            this.PlyBtn.Text = "Play";
+            this.PlyBtn.UseVisualStyleBackColor = true;
+            this.PlyBtn.Click += new System.EventHandler(this.PlyBtn_Click);
             // 
             // PlayDataGridView
             // 
@@ -140,25 +140,25 @@
             this.PlayDataGridView.Size = new System.Drawing.Size(900, 53);
             this.PlayDataGridView.TabIndex = 11;
             // 
-            // VideoTitleLabel
+            // VideoTitleLbl
             // 
-            this.VideoTitleLabel.AutoSize = true;
-            this.VideoTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VideoTitleLabel.Location = new System.Drawing.Point(12, 27);
-            this.VideoTitleLabel.Name = "VideoTitleLabel";
-            this.VideoTitleLabel.Size = new System.Drawing.Size(142, 31);
-            this.VideoTitleLabel.TabIndex = 0;
-            this.VideoTitleLabel.Text = "Video Title";
+            this.VideoTitleLbl.AutoSize = true;
+            this.VideoTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VideoTitleLbl.Location = new System.Drawing.Point(12, 27);
+            this.VideoTitleLbl.Name = "VideoTitleLbl";
+            this.VideoTitleLbl.Size = new System.Drawing.Size(142, 31);
+            this.VideoTitleLbl.TabIndex = 0;
+            this.VideoTitleLbl.Text = "Video Title";
             // 
-            // button1
+            // Btn1
             // 
-            this.button1.Location = new System.Drawing.Point(1232, 897);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Btn1.Location = new System.Drawing.Point(1232, 897);
+            this.Btn1.Name = "Btn1";
+            this.Btn1.Size = new System.Drawing.Size(75, 23);
+            this.Btn1.TabIndex = 12;
+            this.Btn1.Text = "Btn1";
+            this.Btn1.UseVisualStyleBackColor = true;
+            this.Btn1.Click += new System.EventHandler(this.Btn1_Click);
             // 
             // Videocomments
             // 
@@ -166,13 +166,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1904, 966);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.VideoTitleLabel);
+            this.Controls.Add(this.Btn1);
+            this.Controls.Add(this.VideoTitleLbl);
             this.Controls.Add(this.PlayDataGridView);
-            this.Controls.Add(this.PlayButton);
-            this.Controls.Add(this.ClearButton);
+            this.Controls.Add(this.PlyBtn);
+            this.Controls.Add(this.ClrBtn);
             this.Controls.Add(this.QueDataGridView);
-            this.Controls.Add(this.SelectButton);
+            this.Controls.Add(this.SelBtn);
             this.Controls.Add(this.CommentsDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Videocomments";
@@ -190,15 +190,15 @@
 
         #endregion
         private System.Windows.Forms.DataGridView CommentsDataGridView;
-        private System.Windows.Forms.Button SelectButton;
+        private System.Windows.Forms.Button SelBtn;
         private System.Windows.Forms.DataGridView QueDataGridView;
-        private System.Windows.Forms.Button ClearButton;
-        private System.Windows.Forms.Button PlayButton;
+        private System.Windows.Forms.Button ClrBtn;
+        private System.Windows.Forms.Button PlyBtn;
         private System.Windows.Forms.DataGridView PlayDataGridView;
-        private System.Windows.Forms.Label VideoTitleLabel;
+        private System.Windows.Forms.Label VideoTitleLbl;
         private System.Windows.Forms.DataGridViewTextBoxColumn CommentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Namecolumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Btn1;
     }
 }

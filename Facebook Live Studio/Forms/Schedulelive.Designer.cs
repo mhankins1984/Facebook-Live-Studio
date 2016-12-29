@@ -1,6 +1,6 @@
 ﻿namespace Facebook_Live_Studio.Forms
 {
-    partial class Schedulelivevideo
+    partial class Schedulelive
     {
         /// <summary>
         /// Required designer variable.
@@ -30,20 +30,20 @@
         {
             this.StreamkeyTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.Lbl3 = new System.Windows.Forms.Label();
             this.VideoDescriptionTextBox = new System.Windows.Forms.TextBox();
-            this.VideoTitleLabel = new System.Windows.Forms.Label();
-            this.VideotagsLabel = new System.Windows.Forms.Label();
+            this.VideoTitleLbl = new System.Windows.Forms.Label();
+            this.VideotagsLbl = new System.Windows.Forms.Label();
             this.VideotagsTextBox = new System.Windows.Forms.TextBox();
             this.VideoTitleTextBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Lbl2 = new System.Windows.Forms.Label();
+            this.Lbl1 = new System.Windows.Forms.Label();
             this.DatePicker = new System.Windows.Forms.DateTimePicker();
             this.TimePicker = new System.Windows.Forms.DateTimePicker();
             this.StreamkeyLable = new System.Windows.Forms.Label();
-            this.ScheduleButton = new System.Windows.Forms.Button();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.SchBtn = new System.Windows.Forms.Button();
+            this.CanBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -63,10 +63,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.Lbl3);
             this.panel1.Controls.Add(this.VideoDescriptionTextBox);
-            this.panel1.Controls.Add(this.VideoTitleLabel);
-            this.panel1.Controls.Add(this.VideotagsLabel);
+            this.panel1.Controls.Add(this.VideoTitleLbl);
+            this.panel1.Controls.Add(this.VideotagsLbl);
             this.panel1.Controls.Add(this.VideotagsTextBox);
             this.panel1.Controls.Add(this.VideoTitleTextBox);
             this.panel1.Controls.Add(this.panel2);
@@ -75,16 +75,16 @@
             this.panel1.Size = new System.Drawing.Size(740, 332);
             this.panel1.TabIndex = 1;
             // 
-            // label3
+            // Lbl3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 105);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 14);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Video description";
+            this.Lbl3.AutoSize = true;
+            this.Lbl3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Lbl3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl3.Location = new System.Drawing.Point(22, 105);
+            this.Lbl3.Name = "Lbl3";
+            this.Lbl3.Size = new System.Drawing.Size(105, 14);
+            this.Lbl3.TabIndex = 6;
+            this.Lbl3.Text = "Video description";
             // 
             // VideoDescriptionTextBox
             // 
@@ -95,27 +95,27 @@
             this.VideoDescriptionTextBox.Size = new System.Drawing.Size(250, 168);
             this.VideoDescriptionTextBox.TabIndex = 2;
             // 
-            // VideoTitleLabel
+            // VideoTitleLbl
             // 
-            this.VideoTitleLabel.AutoSize = true;
-            this.VideoTitleLabel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.VideoTitleLabel.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VideoTitleLabel.Location = new System.Drawing.Point(22, 12);
-            this.VideoTitleLabel.Name = "VideoTitleLabel";
-            this.VideoTitleLabel.Size = new System.Drawing.Size(66, 14);
-            this.VideoTitleLabel.TabIndex = 5;
-            this.VideoTitleLabel.Text = "Video Title";
+            this.VideoTitleLbl.AutoSize = true;
+            this.VideoTitleLbl.Cursor = System.Windows.Forms.Cursors.Default;
+            this.VideoTitleLbl.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VideoTitleLbl.Location = new System.Drawing.Point(22, 12);
+            this.VideoTitleLbl.Name = "VideoTitleLbl";
+            this.VideoTitleLbl.Size = new System.Drawing.Size(66, 14);
+            this.VideoTitleLbl.TabIndex = 5;
+            this.VideoTitleLbl.Text = "Video Title";
             // 
-            // VideotagsLabel
+            // VideotagsLbl
             // 
-            this.VideotagsLabel.AutoSize = true;
-            this.VideotagsLabel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.VideotagsLabel.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VideotagsLabel.Location = new System.Drawing.Point(22, 56);
-            this.VideotagsLabel.Name = "VideotagsLabel";
-            this.VideotagsLabel.Size = new System.Drawing.Size(66, 14);
-            this.VideotagsLabel.TabIndex = 4;
-            this.VideotagsLabel.Text = "Video tags";
+            this.VideotagsLbl.AutoSize = true;
+            this.VideotagsLbl.Cursor = System.Windows.Forms.Cursors.Default;
+            this.VideotagsLbl.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VideotagsLbl.Location = new System.Drawing.Point(22, 56);
+            this.VideotagsLbl.Name = "VideotagsLbl";
+            this.VideotagsLbl.Size = new System.Drawing.Size(66, 14);
+            this.VideotagsLbl.TabIndex = 4;
+            this.VideotagsLbl.Text = "Video tags";
             // 
             // VideotagsTextBox
             // 
@@ -138,8 +138,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.Lbl2);
+            this.panel2.Controls.Add(this.Lbl1);
             this.panel2.Controls.Add(this.DatePicker);
             this.panel2.Controls.Add(this.TimePicker);
             this.panel2.Controls.Add(this.StreamkeyLable);
@@ -149,27 +149,27 @@
             this.panel2.Size = new System.Drawing.Size(429, 332);
             this.panel2.TabIndex = 1;
             // 
-            // label2
+            // Lbl2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(290, 262);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 14);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "UTC";
+            this.Lbl2.AutoSize = true;
+            this.Lbl2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Lbl2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl2.Location = new System.Drawing.Point(290, 262);
+            this.Lbl2.Name = "Lbl2";
+            this.Lbl2.Size = new System.Drawing.Size(29, 14);
+            this.Lbl2.TabIndex = 9;
+            this.Lbl2.Text = "UTC";
             // 
-            // label1
+            // Lbl1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 242);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 14);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Scheduled start time";
+            this.Lbl1.AutoSize = true;
+            this.Lbl1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Lbl1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl1.Location = new System.Drawing.Point(12, 242);
+            this.Lbl1.Name = "Lbl1";
+            this.Lbl1.Size = new System.Drawing.Size(122, 14);
+            this.Lbl1.TabIndex = 8;
+            this.Lbl1.Text = "Scheduled start time";
             // 
             // DatePicker
             // 
@@ -199,38 +199,38 @@
             this.StreamkeyLable.TabIndex = 1;
             this.StreamkeyLable.Text = "Stream key";
             // 
-            // ScheduleButton
+            // SchBtn
             // 
-            this.ScheduleButton.Location = new System.Drawing.Point(672, 410);
-            this.ScheduleButton.Name = "ScheduleButton";
-            this.ScheduleButton.Size = new System.Drawing.Size(75, 23);
-            this.ScheduleButton.TabIndex = 5;
-            this.ScheduleButton.Text = "Schedule";
-            this.ScheduleButton.UseVisualStyleBackColor = true;
-            this.ScheduleButton.Click += new System.EventHandler(this.ScheduleButton_Click);
+            this.SchBtn.Location = new System.Drawing.Point(672, 410);
+            this.SchBtn.Name = "SchBtn";
+            this.SchBtn.Size = new System.Drawing.Size(75, 23);
+            this.SchBtn.TabIndex = 5;
+            this.SchBtn.Text = "Schedule";
+            this.SchBtn.UseVisualStyleBackColor = true;
+            this.SchBtn.Click += new System.EventHandler(this.SchBtn_Click);
             // 
-            // CancelButton
+            // CanBtn
             // 
-            this.CancelButton.Location = new System.Drawing.Point(7, 410);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 6;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.CanBtn.Location = new System.Drawing.Point(7, 410);
+            this.CanBtn.Name = "CanBtn";
+            this.CanBtn.Size = new System.Drawing.Size(75, 23);
+            this.CanBtn.TabIndex = 6;
+            this.CanBtn.Text = "Cancel";
+            this.CanBtn.UseVisualStyleBackColor = true;
+            this.CanBtn.Click += new System.EventHandler(this.CanBtn_Click);
             // 
-            // Schedulelivevideo
+            // Schedulelive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(754, 438);
             this.ControlBox = false;
-            this.Controls.Add(this.CancelButton);
-            this.Controls.Add(this.ScheduleButton);
+            this.Controls.Add(this.CanBtn);
+            this.Controls.Add(this.SchBtn);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Schedulelivevideo";
+            this.Name = "Schedulelive";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Schedule live video";
@@ -251,15 +251,15 @@
         private System.Windows.Forms.Label StreamkeyLable;
         private System.Windows.Forms.TextBox VideotagsTextBox;
         private System.Windows.Forms.TextBox VideoTitleTextBox;
-        private System.Windows.Forms.Label VideoTitleLabel;
-        private System.Windows.Forms.Label VideotagsLabel;
-        private System.Windows.Forms.Button ScheduleButton;
+        private System.Windows.Forms.Label VideoTitleLbl;
+        private System.Windows.Forms.Label VideotagsLbl;
+        private System.Windows.Forms.Button SchBtn;
         private System.Windows.Forms.TextBox VideoDescriptionTextBox;
         private System.Windows.Forms.DateTimePicker TimePicker;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Lbl1;
         private System.Windows.Forms.DateTimePicker DatePicker;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Label Lbl2;
+        private System.Windows.Forms.Label Lbl3;
+        private System.Windows.Forms.Button CanBtn;
     }
 }

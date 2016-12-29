@@ -4,10 +4,10 @@ using Facebook;
 
 namespace Facebook_Live_Studio.Forms
 {
-    public partial class Schedulelivevideo : Form
+    public partial class Schedulelive : Form
     {
 
-        public Schedulelivevideo()
+        public Schedulelive()
         {
             InitializeComponent();
             //
@@ -100,7 +100,7 @@ namespace Facebook_Live_Studio.Forms
             }          
         }
 
-        private void ScheduleButton_Click(object sender, EventArgs e)
+        private void SchBtn_Click(object sender, EventArgs e)
         {
             //
             // Schedule live
@@ -127,7 +127,7 @@ namespace Facebook_Live_Studio.Forms
             StreamkeyTextBox.Text = stream_key;
         }
 
-        private void CancelButton_Click(object sender, EventArgs e)
+        private void CanBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }

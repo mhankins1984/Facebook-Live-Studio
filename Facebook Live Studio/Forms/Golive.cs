@@ -33,7 +33,7 @@ namespace Facebook_Live_Studio.Forms
             }
         }
         
-        private void GoliveButton_Click(object sender, EventArgs e)
+        private void LveBtn_Click(object sender, EventArgs e)
         {
             //
             // Starts live video
@@ -54,7 +54,7 @@ namespace Facebook_Live_Studio.Forms
             fbupdate.Post(VideoId, new { description = VideoDescriptionTextBox.Text });
             fbupdate.Post(VideoId, new { status = "LIVE_NOW" });
 
-            Videoselector.VideoID = VideoId; // Sets VideoId to current video
+            Selectvideo.VideoID = VideoId; // Sets VideoId to current video
             //
             // Update OBS json file
             //
@@ -71,7 +71,7 @@ namespace Facebook_Live_Studio.Forms
             Videocomments.ShowDialog(this); // Open videocomments with current VideoId selected
         }
 
-        private void CancelButton_Click(object sender, EventArgs e)
+        private void CanBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }

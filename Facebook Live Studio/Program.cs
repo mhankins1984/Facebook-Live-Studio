@@ -13,7 +13,7 @@ namespace Facebook_Live_Studio.Forms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ControlCentre ());
+            Application.Run(new Controlcentre ());
         }
     }
 }

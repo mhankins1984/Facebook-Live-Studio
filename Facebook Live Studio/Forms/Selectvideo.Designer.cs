@@ -1,6 +1,6 @@
 ﻿namespace Facebook_Live_Studio.Forms
 {
-    partial class Videoselector
+    partial class Selectvideo
     {
         /// <summary>
         /// Required designer variable.
@@ -33,8 +33,8 @@
             this.Tilte = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VideoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StreamKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectButton = new System.Windows.Forms.Button();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.SelBtn = new System.Windows.Forms.Button();
+            this.CanBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,44 +81,44 @@
             this.StreamKey.ReadOnly = true;
             this.StreamKey.Visible = false;
             // 
-            // SelectButton
+            // SelBtn
             // 
-            this.SelectButton.Location = new System.Drawing.Point(247, 388);
-            this.SelectButton.Name = "SelectButton";
-            this.SelectButton.Size = new System.Drawing.Size(75, 23);
-            this.SelectButton.TabIndex = 1;
-            this.SelectButton.Text = "Select";
-            this.SelectButton.UseVisualStyleBackColor = true;
-            this.SelectButton.Click += new System.EventHandler(this.SelectButton_Click);
+            this.SelBtn.Location = new System.Drawing.Point(247, 388);
+            this.SelBtn.Name = "SelBtn";
+            this.SelBtn.Size = new System.Drawing.Size(75, 23);
+            this.SelBtn.TabIndex = 1;
+            this.SelBtn.Text = "Select";
+            this.SelBtn.UseVisualStyleBackColor = true;
+            this.SelBtn.Click += new System.EventHandler(this.SelBtn_Click);
             // 
-            // CancelButton
+            // CanBtn
             // 
-            this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Location = new System.Drawing.Point(12, 388);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 3;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.CanBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CanBtn.Location = new System.Drawing.Point(12, 388);
+            this.CanBtn.Name = "CanBtn";
+            this.CanBtn.Size = new System.Drawing.Size(75, 23);
+            this.CanBtn.TabIndex = 3;
+            this.CanBtn.Text = "Cancel";
+            this.CanBtn.UseVisualStyleBackColor = true;
+            this.CanBtn.Click += new System.EventHandler(this.CanBtn_Click);
             // 
-            // Videoselector
+            // Selectvideo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(334, 422);
             this.ControlBox = false;
-            this.Controls.Add(this.CancelButton);
-            this.Controls.Add(this.SelectButton);
+            this.Controls.Add(this.CanBtn);
+            this.Controls.Add(this.SelBtn);
             this.Controls.Add(this.dataGridView1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Videoselector";
+            this.Name = "Selectvideo";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Select Video";
-            this.Load += new System.EventHandler(this.Videoselector_Load);
+            this.Load += new System.EventHandler(this.Selectvideo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -127,8 +127,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button SelectButton;
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button SelBtn;
+        private System.Windows.Forms.Button CanBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tilte;
         private System.Windows.Forms.DataGridViewTextBoxColumn VideoId;

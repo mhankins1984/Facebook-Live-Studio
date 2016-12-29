@@ -8,9 +8,9 @@ using System.IO;
 
 namespace Facebook_Live_Studio.Forms
 {
-    public partial class Videoselector : Form
+    public partial class Selectvideo : Form
     {
-        public Videoselector()
+        public Selectvideo()
         {
             InitializeComponent();
         }
@@ -57,7 +57,7 @@ namespace Facebook_Live_Studio.Forms
         public static string VideoID { get; set; }
         public static string VideoTitle { get; set; }
 
-        private void Videoselector_Load(object sender, EventArgs e)
+        private void Selectvideo_Load(object sender, EventArgs e)
         {
             if (Selectpage.PageId == null)
             {
@@ -105,7 +105,7 @@ namespace Facebook_Live_Studio.Forms
             }
         }
 
-        private void SelectButton_Click(object sender, EventArgs e)
+        private void SelBtn_Click(object sender, EventArgs e)
         {
             //
             // Update OBS json file
@@ -124,14 +124,14 @@ namespace Facebook_Live_Studio.Forms
             this.Close();
         }        
 
-        private void CancelButton_Click(object sender, EventArgs e)
+        private void CanBtn_Click(object sender, EventArgs e)
         {
            this.Close();
            VideoID = null;
         }
 
         
-        private void Videoselector_FormClosing(object sender, FormClosingEventArgs e)
+        private void Selectvideo_FormClosing(object sender, FormClosingEventArgs e)
         {
 
         }

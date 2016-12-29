@@ -82,17 +82,17 @@
     <Compile Include="Forms\Videocomments.Designer.cs">
       <DependentUpon>Videocomments.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ControlCentre.cs">
+    <Compile Include="Forms\Controlcentre.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ControlCentre.Designer.cs">
-      <DependentUpon>ControlCentre.cs</DependentUpon>
+    <Compile Include="Forms\Controlcentre.Designer.cs">
+      <DependentUpon>Controlcentre.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Schedulelivevideo.cs">
+    <Compile Include="Forms\Schedulelive.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Schedulelivevideo.Designer.cs">
-      <DependentUpon>Schedulelivevideo.cs</DependentUpon>
+    <Compile Include="Forms\Schedulelive.Designer.cs">
+      <DependentUpon>Schedulelive.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Streampreview.cs">
       <SubType>Form</SubType>
@@ -100,11 +100,11 @@
     <Compile Include="Forms\Streampreview.Designer.cs">
       <DependentUpon>Streampreview.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Videoselector.cs">
+    <Compile Include="Forms\Selectvideo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Videoselector.Designer.cs">
-      <DependentUpon>Videoselector.cs</DependentUpon>
+    <Compile Include="Forms\Selectvideo.Designer.cs">
+      <DependentUpon>Selectvideo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,17 +120,17 @@
     <EmbeddedResource Include="Forms\Videocomments.resx">
       <DependentUpon>Videocomments.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ControlCentre.resx">
-      <DependentUpon>ControlCentre.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Controlcentre.resx">
+      <DependentUpon>Controlcentre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Schedulelivevideo.resx">
-      <DependentUpon>Schedulelivevideo.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Schedulelive.resx">
+      <DependentUpon>Schedulelive.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Streampreview.resx">
       <DependentUpon>Streampreview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Videoselector.resx">
-      <DependentUpon>Videoselector.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Selectvideo.resx">
+      <DependentUpon>Selectvideo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

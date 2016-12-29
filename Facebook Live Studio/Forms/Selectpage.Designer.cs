@@ -32,7 +32,7 @@
             this.PageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccessToken = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectButton = new System.Windows.Forms.Button();
+            this.SelBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PageDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,25 +72,25 @@
             this.ID.ReadOnly = true;
             this.ID.Visible = false;
             // 
-            // SelectButton
+            // SelBtn
             // 
-            this.SelectButton.Location = new System.Drawing.Point(247, 138);
-            this.SelectButton.Name = "SelectButton";
-            this.SelectButton.Size = new System.Drawing.Size(75, 23);
-            this.SelectButton.TabIndex = 1;
-            this.SelectButton.Text = "Select";
-            this.SelectButton.UseVisualStyleBackColor = true;
-            this.SelectButton.Click += new System.EventHandler(this.SelectButton_Click);
+            this.SelBtn.Location = new System.Drawing.Point(247, 138);
+            this.SelBtn.Name = "SelBtn";
+            this.SelBtn.Size = new System.Drawing.Size(75, 23);
+            this.SelBtn.TabIndex = 1;
+            this.SelBtn.Text = "Select";
+            this.SelBtn.UseVisualStyleBackColor = true;
+            this.SelBtn.Click += new System.EventHandler(this.SelBtn_Click);
             // 
             // Selectpage
             // 
-            this.AcceptButton = this.SelectButton;
+            this.AcceptButton = this.SelBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(334, 166);
             this.ControlBox = false;
-            this.Controls.Add(this.SelectButton);
+            this.Controls.Add(this.SelBtn);
             this.Controls.Add(this.PageDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
@@ -108,7 +108,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView PageDataGridView;
-        private System.Windows.Forms.Button SelectButton;
+        private System.Windows.Forms.Button SelBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PageName;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccessToken;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;

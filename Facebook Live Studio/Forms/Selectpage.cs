@@ -88,7 +88,7 @@ namespace Facebook_Live_Studio.Forms
             }
         }
 
-        private void SelectButton_Click(object sender, EventArgs e)
+        private void SelBtn_Click(object sender, EventArgs e)
         {
             PageTitle = PageDataGridView.SelectedCells[0].Value.ToString();
             PageAccessToken = PageDataGridView.SelectedCells[1].Value.ToString();
@@ -96,7 +96,7 @@ namespace Facebook_Live_Studio.Forms
             this.Close();
         }
 
-        private void CancelButton_Click(object sender, EventArgs e)
+        private void CanBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }

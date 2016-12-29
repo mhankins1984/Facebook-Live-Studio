@@ -148,20 +148,20 @@ namespace Facebook_Live_Studio.Forms
 
         private void Videocomments_Load(object sender, EventArgs e)
         {
-            if (Videoselector.VideoID == null) // Checks if VideoID null
+            if (Selectvideo.VideoID == null) // Checks if VideoID null
             {
-                var Videoselector = new Videoselector();
-                Videoselector.ShowDialog(this);
+                var Selectvideo = new Selectvideo();
+                Selectvideo.ShowDialog(this);
             }
 
             else { }
 
-            if (Videoselector.VideoID == null) // Checks if VideoID null
+            if (Selectvideo.VideoID == null) // Checks if VideoID null
             {
                 this.Close();
                 timer1.Stop();
             }
-            VideoTitleLabel.Text = Videoselector.VideoTitle; // Displays video title
+            VideoTitleLbl.Text = Selectvideo.VideoTitle; // Displays video title
             //
             // Create columns in tables for tempory data storage
             //
@@ -182,7 +182,7 @@ namespace Facebook_Live_Studio.Forms
             var fb = new FacebookClient(Selectpage.PageAccessToken);
             var LiveVideosComments = string.Format(
                     @"{0}/comments?limit=1000&order=reverse_chronological",
-                    Videoselector.VideoID);
+                    Selectvideo.VideoID);
             var result = fb.Get(LiveVideosComments);
             string json = result.ToString();
             //
@@ -236,7 +236,7 @@ namespace Facebook_Live_Studio.Forms
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (Videoselector.VideoID == null)
+            if (Selectvideo.VideoID == null)
             {
                 timer1.Stop();
             }
@@ -250,7 +250,7 @@ namespace Facebook_Live_Studio.Forms
                 var fb = new FacebookClient(Selectpage.PageAccessToken);
                 var LiveVideosComments = string.Format(
                         @"{0}/comments?limit=1000&order=reverse_chronological",
-                        Videoselector.VideoID);
+                        Selectvideo.VideoID);
                 var result = fb.Get(LiveVideosComments);
 
                 string json = result.ToString();
@@ -277,11 +277,11 @@ namespace Facebook_Live_Studio.Forms
             timer1.Interval = 60000; // in miliseconds
         }
 
-        private void SelectButton_Click(object sender, EventArgs e)
+        private void SelBtn_Click(object sender, EventArgs e)
         {
             int c1 = CommentsDataGridView.SelectedRows.Count;
             if (c1 > 0) // Checks if a comment has been selected
-            { 
+            {
                 string cc = CommentsDataGridView.SelectedCells[2].Value.ToString();
                 if (cc.Length > 170) // Checks if comment under 170 characters
                 {
@@ -332,7 +332,7 @@ namespace Facebook_Live_Studio.Forms
                             this.PlayDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                             this.PlayDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                             PlayDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-                            
+
                             PlayDataGridView.Columns[0].Visible = false; // Hide CommentID from datagridview view
 
                             string name = PlayDataGridView.SelectedCells[1].Value.ToString();
@@ -356,7 +356,7 @@ namespace Facebook_Live_Studio.Forms
             else { System.Windows.Forms.MessageBox.Show("No comment selected.", "Information"); }
         }
 
-        private void ClearButton_Click(object sender, EventArgs e)
+        private void ClrBtn_Click(object sender, EventArgs e)
         {
             //
             // Refresh CommentsDataGridView
@@ -364,7 +364,7 @@ namespace Facebook_Live_Studio.Forms
             timer1.Interval = 1; // in miliseconds
         }
 
-        private void playButton_Click(object sender, EventArgs e)
+        private void PlyBtn_Click(object sender, EventArgs e)
         {
             int c3 = PlayDataGridView.SelectedRows.Count;
             if (c3 > 0)  // Checks if play has comment
@@ -385,7 +385,7 @@ namespace Facebook_Live_Studio.Forms
                     if (!row.IsNewRow)
                         PlayDataGridView.Rows.Remove(row);
                 }
-                 
+
                 int c2 = QueDataGridView.SelectedRows.Count;
                 if (c2 > 0) // Checks if que next has comment
                 {
@@ -420,19 +420,23 @@ namespace Facebook_Live_Studio.Forms
 
                     sendastring(V5);
                     current_still = next_still;
-                }                
+                }
             }
             else {
                 System.Windows.Forms.MessageBox.Show("No comment to play.", "Information");
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Btn1_Click(object sender, EventArgs e)
         {
+            string date = System.DateTime.Now.ToShortDateString().Replace("/", "-");
+            string filename = @"Logs\" + date + " " + VideoTitleLbl.Text + ".xml";
             DataTable dT = LogTable;
             DataSet dS = new DataSet();
             dS.Tables.Add(dT);
-            dS.WriteXml(File.OpenWrite("Logs/comments.xml"));
+            dS.WriteXml(File.OpenWrite(filename));
+
+
         }
     }
 }

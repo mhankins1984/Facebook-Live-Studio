@@ -3,14 +3,14 @@ using System.Windows.Forms;
 
 namespace Facebook_Live_Studio.Forms
 {
-    public partial class ControlCentre : Form
+    public partial class Controlcentre : Form
     {
-        public ControlCentre()
+        public Controlcentre()
         {
             InitializeComponent();
         }
 
-        private void ControlCentre_Load(object sender, EventArgs e)
+        private void Controlcentre_Load(object sender, EventArgs e)
         {
             var Authorise = new Authorise();
             Authorise.ShowDialog(this);
@@ -24,41 +24,41 @@ namespace Facebook_Live_Studio.Forms
             var Selectpage = new Selectpage();
             Selectpage.ShowDialog(this);
 
-            PageNameLabel.Text = Selectpage.PageTitle; // Displays page name
+            PageNameLbl.Text = Selectpage.PageTitle; // Displays page name
         }
 
-        private void Schedulelivevideo_Click(object sender, EventArgs e)
+        private void Schedulelive_Click(object sender, EventArgs e)
         {
-            var Schedulelivevideo = new Schedulelivevideo();
-            Schedulelivevideo.ShowDialog(this);
+            var Schedulelive = new Schedulelive();
+            Schedulelive.ShowDialog(this);
         }
 
-        private void VideocommentsButton_Click(object sender, EventArgs e)
+        private void ComBtn_Click(object sender, EventArgs e)
         {
             var Comments = new Videocomments();
             Comments.ShowDialog(this);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Btn1_Click(object sender, EventArgs e)
         {
-            var Videoselector = new Videoselector();
-            Videoselector.ShowDialog(this);
+            var Selectvideo = new Selectvideo();
+            Selectvideo.ShowDialog(this);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Btn2_Click(object sender, EventArgs e)
         {
             var Streampreview = new Streampreview ();
             Streampreview.ShowDialog(this);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Btn4_Click(object sender, EventArgs e)
         {
             var Selectpage = new Selectpage();
             Selectpage.ShowDialog(this);
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Btn5_Click(object sender, EventArgs e)
         {
             var Golive = new Golive();
             Golive.ShowDialog(this);
