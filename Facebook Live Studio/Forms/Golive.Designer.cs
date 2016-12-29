@@ -145,7 +145,9 @@
             this.Controls.Add(this.LveBtn);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(350, 418);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(350, 418);
             this.Name = "Golive";
             this.ShowInTaskbar = false;

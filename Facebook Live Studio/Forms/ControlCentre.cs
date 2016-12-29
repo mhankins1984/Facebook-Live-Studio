@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Facebook_Live_Studio.Forms
@@ -35,8 +36,18 @@ namespace Facebook_Live_Studio.Forms
 
         private void ComBtn_Click(object sender, EventArgs e)
         {
-            var Comments = new Videocomments();
-            Comments.ShowDialog(this);
+            Videocomments VC = new Videocomments();
+            Screen[] screen0 = Screen.AllScreens;
+            Rectangle bound0 = screen0[0].Bounds;
+            VC.StartPosition = FormStartPosition.Manual;
+            VC.Show();
+
+            Studioout SO = new Studioout();
+            Screen[] screen1 = Screen.AllScreens;
+            Rectangle bound1 = screen1[1].Bounds;
+            SO.SetBounds(bound1.X, bound1.Y, bound1.Width, bound1.Height);
+            SO.StartPosition = FormStartPosition.Manual;
+            SO.Show();
         }
 
         private void Btn1_Click(object sender, EventArgs e)

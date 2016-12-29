@@ -76,6 +76,12 @@
     <Compile Include="Forms\Selectpage.Designer.cs">
       <DependentUpon>Selectpage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Studioout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Studioout.Designer.cs">
+      <DependentUpon>Studioout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Videocomments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Selectpage.resx">
       <DependentUpon>Selectpage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Studioout.resx">
+      <DependentUpon>Studioout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Videocomments.resx">
       <DependentUpon>Videocomments.cs</DependentUpon>

@@ -19,7 +19,13 @@ namespace Facebook_Live_Studio.Forms
 
         private void Videopreview_Load(object sender, EventArgs e)
         {
+            if (Selectvideo.VideoID == null) // Checks if VideoID null
+            {
+                var Selectvideo = new Selectvideo();
+                Selectvideo.ShowDialog(this);
+            }
 
+            else { }
         }
     }
 }
