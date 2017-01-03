@@ -502,8 +502,16 @@ namespace Facebook_Live_Studio.Forms
             Q1C = null;
             Q2N = null;
             Q2C = null;
-            SO.Close();
-            SO = null;
+
+            if (SO == null)
+            {
+
+            }
+            else
+            {
+                SO.Close();
+                SO = null;
+            }
         }
     }
 }
