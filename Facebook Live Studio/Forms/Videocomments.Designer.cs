@@ -87,7 +87,7 @@
             this.SelBtn.Name = "SelBtn";
             this.SelBtn.Size = new System.Drawing.Size(75, 23);
             this.SelBtn.TabIndex = 3;
-            this.SelBtn.Text = "Select";
+            this.SelBtn.Text = "&Select";
             this.SelBtn.UseVisualStyleBackColor = true;
             this.SelBtn.Click += new System.EventHandler(this.SelBtn_Click);
             // 
@@ -111,7 +111,7 @@
             this.ClrBtn.Name = "ClrBtn";
             this.ClrBtn.Size = new System.Drawing.Size(75, 23);
             this.ClrBtn.TabIndex = 5;
-            this.ClrBtn.Text = "Clear";
+            this.ClrBtn.Text = "&Clear";
             this.ClrBtn.UseVisualStyleBackColor = true;
             this.ClrBtn.Click += new System.EventHandler(this.ClrBtn_Click);
             // 
@@ -121,7 +121,7 @@
             this.PlyBtn.Name = "PlyBtn";
             this.PlyBtn.Size = new System.Drawing.Size(75, 23);
             this.PlyBtn.TabIndex = 10;
-            this.PlyBtn.Text = "Play";
+            this.PlyBtn.Text = "&Play";
             this.PlyBtn.UseVisualStyleBackColor = true;
             this.PlyBtn.Click += new System.EventHandler(this.PlyBtn_Click);
             // 

@@ -51,7 +51,7 @@
             this.panel1.Controls.Add(this.VideoTitleTextBox);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(310, 332);
+            this.panel1.Size = new System.Drawing.Size(310, 350);
             this.panel1.TabIndex = 2;
             // 
             // Lbl3
@@ -71,7 +71,7 @@
             this.VideoDescriptionTextBox.Location = new System.Drawing.Point(25, 122);
             this.VideoDescriptionTextBox.Multiline = true;
             this.VideoDescriptionTextBox.Name = "VideoDescriptionTextBox";
-            this.VideoDescriptionTextBox.Size = new System.Drawing.Size(250, 168);
+            this.VideoDescriptionTextBox.Size = new System.Drawing.Size(250, 216);
             this.VideoDescriptionTextBox.TabIndex = 2;
             // 
             // VideoTitleLbl
@@ -116,21 +116,21 @@
             // 
             // LveBtn
             // 
-            this.LveBtn.Location = new System.Drawing.Point(247, 350);
+            this.LveBtn.Location = new System.Drawing.Point(247, 368);
             this.LveBtn.Name = "LveBtn";
             this.LveBtn.Size = new System.Drawing.Size(75, 23);
             this.LveBtn.TabIndex = 6;
-            this.LveBtn.Text = "Go Live";
+            this.LveBtn.Text = "&Go Live";
             this.LveBtn.UseVisualStyleBackColor = true;
             this.LveBtn.Click += new System.EventHandler(this.LveBtn_Click);
             // 
             // CanBtn
             // 
-            this.CanBtn.Location = new System.Drawing.Point(12, 349);
+            this.CanBtn.Location = new System.Drawing.Point(12, 368);
             this.CanBtn.Name = "CanBtn";
             this.CanBtn.Size = new System.Drawing.Size(75, 23);
             this.CanBtn.TabIndex = 7;
-            this.CanBtn.Text = "Cancel";
+            this.CanBtn.Text = "&Cancel";
             this.CanBtn.UseVisualStyleBackColor = true;
             this.CanBtn.Click += new System.EventHandler(this.CanBtn_Click);
             // 
@@ -139,16 +139,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(334, 384);
+            this.ClientSize = new System.Drawing.Size(334, 401);
             this.ControlBox = false;
             this.Controls.Add(this.CanBtn);
             this.Controls.Add(this.LveBtn);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(350, 418);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(350, 418);
             this.Name = "Golive";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

@@ -78,7 +78,7 @@
             this.SelBtn.Name = "SelBtn";
             this.SelBtn.Size = new System.Drawing.Size(75, 23);
             this.SelBtn.TabIndex = 1;
-            this.SelBtn.Text = "Select";
+            this.SelBtn.Text = "&Select";
             this.SelBtn.UseVisualStyleBackColor = true;
             this.SelBtn.Click += new System.EventHandler(this.SelBtn_Click);
             // 

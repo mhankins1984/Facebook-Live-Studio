@@ -122,9 +122,6 @@ namespace Facebook_Live_Studio.Forms
             fbupdate.Post(VideoId, new { title = VideoTitleTextBox.Text });
             fbupdate.Post(VideoId, new { description = VideoDescriptionTextBox.Text });
             fbupdate.Post(VideoId, new { planned_start_time = unixDateTime });
-
-            var stream_key = result.stream_url.Replace("rtmp://rtmp-api.facebook.com:80/rtmp/", "");
-            StreamkeyTextBox.Text = stream_key;
         }
 
         private void CanBtn_Click(object sender, EventArgs e)

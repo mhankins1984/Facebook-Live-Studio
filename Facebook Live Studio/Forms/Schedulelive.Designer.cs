@@ -28,52 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.StreamkeyTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Lbl2 = new System.Windows.Forms.Label();
             this.Lbl3 = new System.Windows.Forms.Label();
+            this.Lbl1 = new System.Windows.Forms.Label();
+            this.DatePicker = new System.Windows.Forms.DateTimePicker();
             this.VideoDescriptionTextBox = new System.Windows.Forms.TextBox();
+            this.TimePicker = new System.Windows.Forms.DateTimePicker();
             this.VideoTitleLbl = new System.Windows.Forms.Label();
             this.VideotagsLbl = new System.Windows.Forms.Label();
             this.VideotagsTextBox = new System.Windows.Forms.TextBox();
             this.VideoTitleTextBox = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.Lbl2 = new System.Windows.Forms.Label();
-            this.Lbl1 = new System.Windows.Forms.Label();
-            this.DatePicker = new System.Windows.Forms.DateTimePicker();
-            this.TimePicker = new System.Windows.Forms.DateTimePicker();
-            this.StreamkeyLable = new System.Windows.Forms.Label();
             this.SchBtn = new System.Windows.Forms.Button();
             this.CanBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // StreamkeyTextBox
-            // 
-            this.StreamkeyTextBox.BackColor = System.Drawing.Color.White;
-            this.StreamkeyTextBox.Font = new System.Drawing.Font("Arial", 8F);
-            this.StreamkeyTextBox.Location = new System.Drawing.Point(15, 299);
-            this.StreamkeyTextBox.Name = "StreamkeyTextBox";
-            this.StreamkeyTextBox.ReadOnly = true;
-            this.StreamkeyTextBox.Size = new System.Drawing.Size(295, 20);
-            this.StreamkeyTextBox.TabIndex = 1;
-            this.StreamkeyTextBox.TabStop = false;
-            this.StreamkeyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.panel1.Controls.Add(this.Lbl2);
             this.panel1.Controls.Add(this.Lbl3);
+            this.panel1.Controls.Add(this.Lbl1);
+            this.panel1.Controls.Add(this.DatePicker);
             this.panel1.Controls.Add(this.VideoDescriptionTextBox);
+            this.panel1.Controls.Add(this.TimePicker);
             this.panel1.Controls.Add(this.VideoTitleLbl);
             this.panel1.Controls.Add(this.VideotagsLbl);
             this.panel1.Controls.Add(this.VideotagsTextBox);
             this.panel1.Controls.Add(this.VideoTitleTextBox);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(7, 72);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(740, 332);
+            this.panel1.Size = new System.Drawing.Size(310, 350);
             this.panel1.TabIndex = 1;
+            // 
+            // Lbl2
+            // 
+            this.Lbl2.AutoSize = true;
+            this.Lbl2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Lbl2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl2.Location = new System.Drawing.Point(230, 325);
+            this.Lbl2.Name = "Lbl2";
+            this.Lbl2.Size = new System.Drawing.Size(29, 14);
+            this.Lbl2.TabIndex = 9;
+            this.Lbl2.Text = "UTC";
             // 
             // Lbl3
             // 
@@ -86,6 +84,25 @@
             this.Lbl3.TabIndex = 6;
             this.Lbl3.Text = "Video description";
             // 
+            // Lbl1
+            // 
+            this.Lbl1.AutoSize = true;
+            this.Lbl1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Lbl1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl1.Location = new System.Drawing.Point(22, 305);
+            this.Lbl1.Name = "Lbl1";
+            this.Lbl1.Size = new System.Drawing.Size(122, 14);
+            this.Lbl1.TabIndex = 8;
+            this.Lbl1.Text = "Scheduled start time";
+            // 
+            // DatePicker
+            // 
+            this.DatePicker.Location = new System.Drawing.Point(25, 322);
+            this.DatePicker.Name = "DatePicker";
+            this.DatePicker.Size = new System.Drawing.Size(130, 20);
+            this.DatePicker.TabIndex = 3;
+            this.DatePicker.ValueChanged += new System.EventHandler(this.DatePicker_ValueChanged);
+            // 
             // VideoDescriptionTextBox
             // 
             this.VideoDescriptionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -94,6 +111,15 @@
             this.VideoDescriptionTextBox.Name = "VideoDescriptionTextBox";
             this.VideoDescriptionTextBox.Size = new System.Drawing.Size(250, 168);
             this.VideoDescriptionTextBox.TabIndex = 2;
+            // 
+            // TimePicker
+            // 
+            this.TimePicker.Location = new System.Drawing.Point(161, 322);
+            this.TimePicker.Name = "TimePicker";
+            this.TimePicker.Size = new System.Drawing.Size(67, 20);
+            this.TimePicker.TabIndex = 4;
+            this.TimePicker.Value = new System.DateTime(2016, 12, 2, 12, 0, 0, 0);
+            this.TimePicker.ValueChanged += new System.EventHandler(this.TimePicker_ValueChanged);
             // 
             // VideoTitleLbl
             // 
@@ -135,87 +161,23 @@
             this.VideoTitleTextBox.Size = new System.Drawing.Size(250, 20);
             this.VideoTitleTextBox.TabIndex = 0;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.panel2.Controls.Add(this.Lbl2);
-            this.panel2.Controls.Add(this.Lbl1);
-            this.panel2.Controls.Add(this.DatePicker);
-            this.panel2.Controls.Add(this.TimePicker);
-            this.panel2.Controls.Add(this.StreamkeyLable);
-            this.panel2.Controls.Add(this.StreamkeyTextBox);
-            this.panel2.Location = new System.Drawing.Point(311, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(429, 332);
-            this.panel2.TabIndex = 1;
-            // 
-            // Lbl2
-            // 
-            this.Lbl2.AutoSize = true;
-            this.Lbl2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Lbl2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl2.Location = new System.Drawing.Point(290, 262);
-            this.Lbl2.Name = "Lbl2";
-            this.Lbl2.Size = new System.Drawing.Size(29, 14);
-            this.Lbl2.TabIndex = 9;
-            this.Lbl2.Text = "UTC";
-            // 
-            // Lbl1
-            // 
-            this.Lbl1.AutoSize = true;
-            this.Lbl1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Lbl1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl1.Location = new System.Drawing.Point(12, 242);
-            this.Lbl1.Name = "Lbl1";
-            this.Lbl1.Size = new System.Drawing.Size(122, 14);
-            this.Lbl1.TabIndex = 8;
-            this.Lbl1.Text = "Scheduled start time";
-            // 
-            // DatePicker
-            // 
-            this.DatePicker.Location = new System.Drawing.Point(15, 259);
-            this.DatePicker.Name = "DatePicker";
-            this.DatePicker.Size = new System.Drawing.Size(200, 20);
-            this.DatePicker.TabIndex = 3;
-            this.DatePicker.ValueChanged += new System.EventHandler(this.DatePicker_ValueChanged);
-            // 
-            // TimePicker
-            // 
-            this.TimePicker.Location = new System.Drawing.Point(221, 259);
-            this.TimePicker.Name = "TimePicker";
-            this.TimePicker.Size = new System.Drawing.Size(67, 20);
-            this.TimePicker.TabIndex = 4;
-            this.TimePicker.Value = new System.DateTime(2016, 12, 2, 12, 0, 0, 0);
-            this.TimePicker.ValueChanged += new System.EventHandler(this.TimePicker_ValueChanged);
-            // 
-            // StreamkeyLable
-            // 
-            this.StreamkeyLable.AutoSize = true;
-            this.StreamkeyLable.Cursor = System.Windows.Forms.Cursors.Default;
-            this.StreamkeyLable.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StreamkeyLable.Location = new System.Drawing.Point(12, 282);
-            this.StreamkeyLable.Name = "StreamkeyLable";
-            this.StreamkeyLable.Size = new System.Drawing.Size(70, 14);
-            this.StreamkeyLable.TabIndex = 1;
-            this.StreamkeyLable.Text = "Stream key";
-            // 
             // SchBtn
             // 
-            this.SchBtn.Location = new System.Drawing.Point(672, 410);
+            this.SchBtn.Location = new System.Drawing.Point(247, 368);
             this.SchBtn.Name = "SchBtn";
             this.SchBtn.Size = new System.Drawing.Size(75, 23);
             this.SchBtn.TabIndex = 5;
-            this.SchBtn.Text = "Schedule";
+            this.SchBtn.Text = "&Schedule";
             this.SchBtn.UseVisualStyleBackColor = true;
             this.SchBtn.Click += new System.EventHandler(this.SchBtn_Click);
             // 
             // CanBtn
             // 
-            this.CanBtn.Location = new System.Drawing.Point(7, 410);
+            this.CanBtn.Location = new System.Drawing.Point(12, 368);
             this.CanBtn.Name = "CanBtn";
             this.CanBtn.Size = new System.Drawing.Size(75, 23);
             this.CanBtn.TabIndex = 6;
-            this.CanBtn.Text = "Cancel";
+            this.CanBtn.Text = "&Cancel";
             this.CanBtn.UseVisualStyleBackColor = true;
             this.CanBtn.Click += new System.EventHandler(this.CanBtn_Click);
             // 
@@ -224,7 +186,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(754, 438);
+            this.ClientSize = new System.Drawing.Size(334, 401);
             this.ControlBox = false;
             this.Controls.Add(this.CanBtn);
             this.Controls.Add(this.SchBtn);
@@ -233,22 +195,16 @@
             this.Name = "Schedulelive";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Schedule live video";
+            this.Text = "Schedule live";
             this.Load += new System.EventHandler(this.Createlivevideo_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox StreamkeyTextBox;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label StreamkeyLable;
         private System.Windows.Forms.TextBox VideotagsTextBox;
         private System.Windows.Forms.TextBox VideoTitleTextBox;
         private System.Windows.Forms.Label VideoTitleLbl;

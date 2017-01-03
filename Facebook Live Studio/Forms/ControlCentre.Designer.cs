@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Controlcentre));
             this.ComBtn = new System.Windows.Forms.Button();
             this.PrvBtn = new System.Windows.Forms.Button();
-            this.Btn3 = new System.Windows.Forms.Button();
+            this.LviBtn = new System.Windows.Forms.Button();
             this.SchBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PageNameLbl = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.LveBtn = new System.Windows.Forms.Button();
-            this.Btn4 = new System.Windows.Forms.Button();
-            this.Btn1 = new System.Windows.Forms.Button();
+            this.PgeBtn = new System.Windows.Forms.Button();
+            this.VidBtn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -56,7 +56,7 @@
             this.ComBtn.Name = "ComBtn";
             this.ComBtn.Size = new System.Drawing.Size(75, 23);
             this.ComBtn.TabIndex = 4;
-            this.ComBtn.Text = "Comments";
+            this.ComBtn.Text = "&Comments";
             this.ComBtn.UseVisualStyleBackColor = true;
             this.ComBtn.Click += new System.EventHandler(this.ComBtn_Click);
             // 
@@ -71,15 +71,15 @@
             this.PrvBtn.UseVisualStyleBackColor = true;
             this.PrvBtn.Click += new System.EventHandler(this.Btn2_Click);
             // 
-            // Btn3
+            // LviBtn
             // 
-            this.Btn3.ForeColor = System.Drawing.Color.Black;
-            this.Btn3.Location = new System.Drawing.Point(86, 19);
-            this.Btn3.Name = "Btn3";
-            this.Btn3.Size = new System.Drawing.Size(75, 23);
-            this.Btn3.TabIndex = 3;
-            this.Btn3.Text = "Live View";
-            this.Btn3.UseVisualStyleBackColor = true;
+            this.LviBtn.ForeColor = System.Drawing.Color.Black;
+            this.LviBtn.Location = new System.Drawing.Point(86, 19);
+            this.LviBtn.Name = "LviBtn";
+            this.LviBtn.Size = new System.Drawing.Size(75, 23);
+            this.LviBtn.TabIndex = 3;
+            this.LviBtn.Text = "Live View";
+            this.LviBtn.UseVisualStyleBackColor = true;
             // 
             // SchBtn
             // 
@@ -88,7 +88,7 @@
             this.SchBtn.Name = "SchBtn";
             this.SchBtn.Size = new System.Drawing.Size(75, 23);
             this.SchBtn.TabIndex = 5;
-            this.SchBtn.Text = "Schedule";
+            this.SchBtn.Text = "&Schedule";
             this.SchBtn.UseVisualStyleBackColor = true;
             this.SchBtn.Click += new System.EventHandler(this.Schedulelive_Click);
             // 
@@ -114,7 +114,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.PrvBtn);
-            this.groupBox1.Controls.Add(this.Btn3);
+            this.groupBox1.Controls.Add(this.LviBtn);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(185, 303);
             this.groupBox1.Name = "groupBox1";
@@ -142,36 +142,36 @@
             this.LveBtn.Name = "LveBtn";
             this.LveBtn.Size = new System.Drawing.Size(75, 23);
             this.LveBtn.TabIndex = 6;
-            this.LveBtn.Text = "Go Live";
+            this.LveBtn.Text = "&Go Live";
             this.LveBtn.UseVisualStyleBackColor = true;
             this.LveBtn.Click += new System.EventHandler(this.Btn5_Click);
             // 
-            // Btn4
+            // PgeBtn
             // 
-            this.Btn4.ForeColor = System.Drawing.Color.Black;
-            this.Btn4.Location = new System.Drawing.Point(6, 19);
-            this.Btn4.Name = "Btn4";
-            this.Btn4.Size = new System.Drawing.Size(75, 23);
-            this.Btn4.TabIndex = 0;
-            this.Btn4.Text = "Page";
-            this.Btn4.UseVisualStyleBackColor = true;
-            this.Btn4.Click += new System.EventHandler(this.Btn4_Click);
+            this.PgeBtn.ForeColor = System.Drawing.Color.Black;
+            this.PgeBtn.Location = new System.Drawing.Point(6, 19);
+            this.PgeBtn.Name = "PgeBtn";
+            this.PgeBtn.Size = new System.Drawing.Size(75, 23);
+            this.PgeBtn.TabIndex = 0;
+            this.PgeBtn.Text = "Page";
+            this.PgeBtn.UseVisualStyleBackColor = true;
+            this.PgeBtn.Click += new System.EventHandler(this.Btn4_Click);
             // 
-            // Btn1
+            // VidBtn
             // 
-            this.Btn1.ForeColor = System.Drawing.Color.Black;
-            this.Btn1.Location = new System.Drawing.Point(86, 19);
-            this.Btn1.Name = "Btn1";
-            this.Btn1.Size = new System.Drawing.Size(75, 23);
-            this.Btn1.TabIndex = 1;
-            this.Btn1.Text = "Video";
-            this.Btn1.UseVisualStyleBackColor = true;
-            this.Btn1.Click += new System.EventHandler(this.Btn1_Click);
+            this.VidBtn.ForeColor = System.Drawing.Color.Black;
+            this.VidBtn.Location = new System.Drawing.Point(86, 19);
+            this.VidBtn.Name = "VidBtn";
+            this.VidBtn.Size = new System.Drawing.Size(75, 23);
+            this.VidBtn.TabIndex = 1;
+            this.VidBtn.Text = "Video";
+            this.VidBtn.UseVisualStyleBackColor = true;
+            this.VidBtn.Click += new System.EventHandler(this.Btn1_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.Btn1);
-            this.groupBox2.Controls.Add(this.Btn4);
+            this.groupBox2.Controls.Add(this.VidBtn);
+            this.groupBox2.Controls.Add(this.PgeBtn);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(99, 230);
             this.groupBox2.Name = "groupBox2";
@@ -203,11 +203,10 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.PageNameLbl);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(380, 500);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(380, 500);
             this.Name = "Controlcentre";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "facebook live Studio";
@@ -225,15 +224,15 @@
         #endregion
         private System.Windows.Forms.Button ComBtn;
         private System.Windows.Forms.Button PrvBtn;
-        private System.Windows.Forms.Button Btn3;
+        private System.Windows.Forms.Button LviBtn;
         private System.Windows.Forms.Button SchBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label PageNameLbl;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button LveBtn;
-        private System.Windows.Forms.Button Btn4;
-        private System.Windows.Forms.Button Btn1;
+        private System.Windows.Forms.Button PgeBtn;
+        private System.Windows.Forms.Button VidBtn;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox4;
     }

@@ -10,6 +10,7 @@ using System.Threading;
 using System.Configuration;
 using System.Linq;
 using System.IO;
+using System.Drawing;
 
 namespace Facebook_Live_Studio.Forms
 {
@@ -101,6 +102,15 @@ namespace Facebook_Live_Studio.Forms
             public IList<Datum> data { get; set; }
             public Paging paging { get; set; }
         }
+        //
+        // Studio Out
+        //
+        public static string Q1N { get; set; }
+        public static string Q1C { get; set; }
+        public static string Q2N { get; set; }
+        public static string Q2C { get; set; }
+
+        Studioout SO = null;
 
         void sendastring(String w)
         {
@@ -225,6 +235,16 @@ namespace Facebook_Live_Studio.Forms
                 CommentsDataGridView.Rows[i].Cells[1].Value = d.from.name;
                 CommentsDataGridView.Rows[i++].Cells[2].Value = d.message;
             }
+
+            if (SO == null)
+            {
+                SO = new Studioout();
+                Screen[] screen1 = Screen.AllScreens;
+                Rectangle bound1 = screen1[1].Bounds;
+                SO.SetBounds(bound1.X, bound1.Y, bound1.Width, bound1.Height);
+                SO.StartPosition = FormStartPosition.Manual;
+                SO.Show();
+            }
         }
 
         private System.Windows.Forms.Timer timer1;
@@ -322,6 +342,13 @@ namespace Facebook_Live_Studio.Forms
                             // Refresh CommentsDataGridView
                             //
                             timer1.Interval = 1; // in miliseconds
+                            //
+                            // Output details to Studioout form
+                            //
+                            Q1N = PlayDataGridView.Rows[0].Cells[1].Value.ToString();
+                            Q1C = PlayDataGridView.Rows[0].Cells[2].Value.ToString();
+                            Q2N = QueDataGridView.Rows[0].Cells[1].Value.ToString();
+                            Q2C = QueDataGridView.Rows[0].Cells[2].Value.ToString();
                         }
 
                         else
@@ -337,8 +364,8 @@ namespace Facebook_Live_Studio.Forms
 
                             PlayDataGridView.Columns[0].Visible = false; // Hide CommentID from datagridview view
 
-                            string name = PlayDataGridView.SelectedCells[1].Value.ToString();
-                            string comment = PlayDataGridView.SelectedCells[2].Value.ToString();
+                            string name = PlayDataGridView.Rows[0].Cells[1].Value.ToString();
+                            string comment = PlayDataGridView.Rows[0].Cells[2].Value.ToString();
 
                             outputXmL(name, comment);
 
@@ -351,6 +378,11 @@ namespace Facebook_Live_Studio.Forms
                             // Refresh CommentsDataGridView
                             //
                             timer1.Interval = 1; // in miliseconds
+                            //
+                            // Output details to Studioout form
+                            //
+                            Q1N = PlayDataGridView.Rows[0].Cells[1].Value.ToString();
+                            Q1C = PlayDataGridView.Rows[0].Cells[2].Value.ToString();
                         }
                     }
                 }
@@ -391,8 +423,9 @@ namespace Facebook_Live_Studio.Forms
                 int c2 = QueDataGridView.SelectedRows.Count;
                 if (c2 > 0) // Checks if que next has comment
                 {
-                    string name = QueDataGridView.SelectedCells[1].Value.ToString();
-                    string comment = QueDataGridView.SelectedCells[2].Value.ToString();
+
+                    string name = QueDataGridView.Rows[0].Cells[1].Value.ToString();
+                    string comment = QueDataGridView.Rows[0].Cells[2].Value.ToString();
 
                     outputXmL(name, comment);
 
@@ -422,6 +455,26 @@ namespace Facebook_Live_Studio.Forms
 
                     sendastring(V5);
                     current_still = next_still;
+
+                    Q1N = PlayDataGridView.Rows[0].Cells[1].Value.ToString();
+                    Q1C = PlayDataGridView.Rows[0].Cells[2].Value.ToString();
+
+                    int c4 = QueDataGridView.SelectedRows.Count;
+
+                    if (c4 < 1) // Checks if que has more than 1 comment remaining
+                    {
+                        Q2N = null;
+                        Q2C = null;
+                    }
+
+                    else
+                    {
+                        //
+                        // Output details to Studioout form
+                        //    
+                        Q2N = QueDataGridView.Rows[0].Cells[1].Value.ToString();
+                        Q2C = QueDataGridView.Rows[0].Cells[2].Value.ToString();
+                    }
                 }
             }
             else
@@ -432,12 +485,25 @@ namespace Facebook_Live_Studio.Forms
 
         private void Videocomments_Closing(object sender, FormClosingEventArgs e)
         {
-            string date = System.DateTime.Now.ToShortDateString().Replace("/", "-");
-            string filename = @"Logs\" + date + " " + VideoTitleLbl.Text + ".xml";
-            DataTable dT = LogTable;
-            DataSet dS = new DataSet();
-            dS.Tables.Add(dT);
-            dS.WriteXml(File.OpenWrite(filename));
+            ////
+            //// Write log file
+            ////
+            //string date = System.DateTime.Now.ToShortDateString().Replace("/", "-");
+            //string filename = @"Logs\" + date + " " + VideoTitleLbl.Text + ".xml";
+            //DataTable dT = LogTable;
+            //DataSet dS = new DataSet();
+            //dS.Tables.Add(dT);
+            //dS.WriteXml(File.OpenWrite(filename));
+
+            //
+            // Clear and close Studioout form
+            //
+            Q1N = null;
+            Q1C = null;
+            Q2N = null;
+            Q2C = null;
+            SO.Close();
+            SO = null;
         }
     }
 }

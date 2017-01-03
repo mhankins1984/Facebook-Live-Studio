@@ -52,7 +52,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(310, 370);
+            this.dataGridView1.Size = new System.Drawing.Size(310, 350);
             this.dataGridView1.TabIndex = 0;
             // 
             // Status
@@ -83,22 +83,22 @@
             // 
             // SelBtn
             // 
-            this.SelBtn.Location = new System.Drawing.Point(247, 388);
+            this.SelBtn.Location = new System.Drawing.Point(247, 368);
             this.SelBtn.Name = "SelBtn";
             this.SelBtn.Size = new System.Drawing.Size(75, 23);
             this.SelBtn.TabIndex = 1;
-            this.SelBtn.Text = "Select";
+            this.SelBtn.Text = "&Select";
             this.SelBtn.UseVisualStyleBackColor = true;
             this.SelBtn.Click += new System.EventHandler(this.SelBtn_Click);
             // 
             // CanBtn
             // 
             this.CanBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CanBtn.Location = new System.Drawing.Point(12, 388);
+            this.CanBtn.Location = new System.Drawing.Point(12, 368);
             this.CanBtn.Name = "CanBtn";
             this.CanBtn.Size = new System.Drawing.Size(75, 23);
             this.CanBtn.TabIndex = 3;
-            this.CanBtn.Text = "Cancel";
+            this.CanBtn.Text = "&Cancel";
             this.CanBtn.UseVisualStyleBackColor = true;
             this.CanBtn.Click += new System.EventHandler(this.CanBtn_Click);
             // 
@@ -107,11 +107,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(334, 422);
+            this.ClientSize = new System.Drawing.Size(334, 401);
             this.ControlBox = false;
             this.Controls.Add(this.CanBtn);
             this.Controls.Add(this.SelBtn);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Selectvideo";
