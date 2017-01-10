@@ -35,6 +35,7 @@
             this.split = new System.Windows.Forms.Label();
             this.Q1N = new System.Windows.Forms.Label();
             this.Q1C = new System.Windows.Forms.Label();
+            this.Live = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Q2N
@@ -96,6 +97,18 @@
             this.Q1C.TabIndex = 4;
             this.Q1C.Text = "Q1C\r\nQ1C\r\nQ1C\r\nQ1C\r\n";
             // 
+            // Live
+            // 
+            this.Live.AutoSize = true;
+            this.Live.BackColor = System.Drawing.Color.Red;
+            this.Live.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Live.ForeColor = System.Drawing.Color.White;
+            this.Live.Location = new System.Drawing.Point(1732, 9);
+            this.Live.Name = "Live";
+            this.Live.Size = new System.Drawing.Size(176, 73);
+            this.Live.TabIndex = 7;
+            this.Live.Text = "LIVE";
+            // 
             // Studioout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -103,6 +116,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.ControlBox = false;
+            this.Controls.Add(this.Live);
             this.Controls.Add(this.split);
             this.Controls.Add(this.Q2C);
             this.Controls.Add(this.Q1C);
@@ -129,5 +143,6 @@
         private System.Windows.Forms.Label split;
         private System.Windows.Forms.Label Q1N;
         private System.Windows.Forms.Label Q1C;
+        private System.Windows.Forms.Label Live;
     }
 }

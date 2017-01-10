@@ -51,6 +51,7 @@
             this.PageDataGridView.RowHeadersVisible = false;
             this.PageDataGridView.Size = new System.Drawing.Size(310, 120);
             this.PageDataGridView.TabIndex = 0;
+            this.PageDataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PageDataGridView_CellContentDoubleClick);
             // 
             // PageName
             // 

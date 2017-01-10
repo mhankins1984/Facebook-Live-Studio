@@ -46,10 +46,10 @@ namespace Facebook_Live_Studio.Forms
 
 
         private void LoadAuthorise(object sender, EventArgs e)
-        //
-        // request user access token
-        //
         {
+            //
+            // request user access token
+            //
             var destinationURL = String.Format(
                 @"https://www.facebook.com/v2.8/dialog/oauth?client_id={0}&scope={1}&redirect_uri=https://www.facebook.com/connect/login_success.html&response_type=token",
                 this.ApplicationId,

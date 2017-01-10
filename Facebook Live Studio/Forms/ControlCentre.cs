@@ -25,7 +25,7 @@ namespace Facebook_Live_Studio.Forms
             var Selectpage = new Selectpage();
             Selectpage.ShowDialog(this);
 
-            PageNameLbl.Text = Selectpage.PageTitle; // Displays page name
+            PageNameLbl.Text = Selectpage.PageTitle; // Displays page name            
         }
 
         private void Schedulelive_Click(object sender, EventArgs e)
@@ -48,8 +48,7 @@ namespace Facebook_Live_Studio.Forms
 
         private void Btn2_Click(object sender, EventArgs e)
         {
-            var Streampreview = new Streampreview ();
-            Streampreview.ShowDialog(this);
+            System.Windows.Forms.MessageBox.Show("Not currently enabled.", "Information");
         }
 
         private void Btn4_Click(object sender, EventArgs e)
@@ -63,6 +62,22 @@ namespace Facebook_Live_Studio.Forms
         {
             var Golive = new Golive();
             Golive.ShowDialog(this);
+        }
+
+        private void systemConfigurationToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var SystemConfiguration = new SystemConfiguration();
+            SystemConfiguration.ShowDialog(this);
+        }
+
+        private void systemConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.MessageBox.Show("Not currently enabled.", "Information");
+        }
+
+        private void LviBtn_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.MessageBox.Show("Not currently enabled.", "Information");
         }
     }
 }

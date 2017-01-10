@@ -46,6 +46,14 @@ namespace Facebook_Live_Studio.Forms
             public Paging paging { get; set; }
         }
 
+        public string OBSEnabled
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["OBSEnabled"];
+            }
+        }
+
         public string OBSLocation
         {
             get
@@ -110,6 +118,27 @@ namespace Facebook_Live_Studio.Forms
             //
             // Update OBS json file
             //
+            string drive = Path.GetPathRoot(OBSLocation);
+            var stream_key = dataGridView1.SelectedCells[3].Value.ToString();
+            string json = File.ReadAllText(OBSLocation);
+            dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+            jsonObj["settings"]["key"] = stream_key;
+            string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText(OBSLocation, output);
+
+            //
+            // Copy videoid and title to public static string
+            //
+            VideoID = dataGridView1.SelectedCells[2].Value.ToString();
+            VideoTitle = dataGridView1.SelectedCells[1].Value.ToString();
+            this.Close();
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //
+            // Update OBS json file
+            //
             var stream_key = dataGridView1.SelectedCells[3].Value.ToString();
             string json = File.ReadAllText(OBSLocation);
             dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
@@ -122,15 +151,14 @@ namespace Facebook_Live_Studio.Forms
             VideoID = dataGridView1.SelectedCells[2].Value.ToString();
             VideoTitle = dataGridView1.SelectedCells[1].Value.ToString();
             this.Close();
-        }        
+        }
 
         private void CanBtn_Click(object sender, EventArgs e)
         {
-           this.Close();
-           VideoID = null;
+            this.Close();
+            VideoID = null;
         }
 
-        
         private void Selectvideo_FormClosing(object sender, FormClosingEventArgs e)
         {
 

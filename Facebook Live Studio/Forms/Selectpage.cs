@@ -100,5 +100,13 @@ namespace Facebook_Live_Studio.Forms
         {
             this.Close();
         }
+
+        private void PageDataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            PageTitle = PageDataGridView.SelectedCells[0].Value.ToString();
+            PageAccessToken = PageDataGridView.SelectedCells[1].Value.ToString();
+            PageId = PageDataGridView.SelectedCells[2].Value.ToString();
+            this.Close();
+        }
     }
 }
