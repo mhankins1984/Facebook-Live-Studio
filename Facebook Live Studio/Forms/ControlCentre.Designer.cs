@@ -33,7 +33,6 @@
             this.PrvBtn = new System.Windows.Forms.Button();
             this.LviBtn = new System.Windows.Forms.Button();
             this.SchBtn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PageNameLbl = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -46,12 +45,13 @@
             this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemConfigurationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Header = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Header)).BeginInit();
             this.SuspendLayout();
             // 
             // ComBtn
@@ -97,15 +97,6 @@
             this.SchBtn.Text = "&Schedule";
             this.SchBtn.UseVisualStyleBackColor = true;
             this.SchBtn.Click += new System.EventHandler(this.Schedulelive_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(370, 203);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
             // 
             // PageNameLbl
             // 
@@ -190,7 +181,7 @@
             // 
             this.groupBox4.Controls.Add(this.ComBtn);
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(99, 401);
+            this.groupBox4.Location = new System.Drawing.Point(98, 401);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(167, 50);
             this.groupBox4.TabIndex = 11;
@@ -234,18 +225,27 @@
             this.systemConfigurationToolStripMenuItem1.Text = "System Configuration";
             this.systemConfigurationToolStripMenuItem1.Click += new System.EventHandler(this.systemConfigurationToolStripMenuItem1_Click);
             // 
+            // Header
+            // 
+            this.Header.Image = ((System.Drawing.Image)(resources.GetObject("Header.Image")));
+            this.Header.Location = new System.Drawing.Point(0, 27);
+            this.Header.Name = "Header";
+            this.Header.Size = new System.Drawing.Size(364, 200);
+            this.Header.TabIndex = 14;
+            this.Header.TabStop = false;
+            // 
             // Controlcentre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(88)))), ((int)(((byte)(155)))));
             this.ClientSize = new System.Drawing.Size(364, 462);
+            this.Controls.Add(this.Header);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.PageNameLbl);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -254,15 +254,15 @@
             this.MinimizeBox = false;
             this.Name = "Controlcentre";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "facebook live Studio";
+            this.Text = "Live Studio";
             this.Load += new System.EventHandler(this.Controlcentre_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Header)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,7 +273,6 @@
         private System.Windows.Forms.Button PrvBtn;
         private System.Windows.Forms.Button LviBtn;
         private System.Windows.Forms.Button SchBtn;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label PageNameLbl;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -286,5 +285,6 @@
         private System.Windows.Forms.ToolStripMenuItem configurationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemConfigurationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemConfigurationToolStripMenuItem1;
+        private System.Windows.Forms.PictureBox Header;
     }
 }

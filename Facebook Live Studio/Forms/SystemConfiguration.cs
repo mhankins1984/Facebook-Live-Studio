@@ -11,11 +11,11 @@ namespace Facebook_Live_Studio.Forms
             InitializeComponent();
         }
 
-        public string ChyronAddress
+        public string ChyronServer
         {
             get
             {
-                return ConfigurationManager.AppSettings["ChyronAddress"];
+                return ConfigurationManager.AppSettings["ChyronServer"];
             }
         }
 
@@ -29,7 +29,7 @@ namespace Facebook_Live_Studio.Forms
 
         private void settings_Load(object sender, EventArgs e)
         {
-            ChyronTB.Text = ChyronAddress;
+            ChyronTB.Text = ChyronServer;
             ObsTB.Text = OBSLocation;
             ChyronTB.Select(0, 0);
         }
@@ -40,7 +40,7 @@ namespace Facebook_Live_Studio.Forms
             if (dialogResult == DialogResult.Yes)
             {
                 Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                config.AppSettings.Settings["ChyronAddress"].Value = ChyronTB.Text;
+                config.AppSettings.Settings["ChyronServer"].Value = ChyronTB.Text;
                 config.AppSettings.Settings["OBSLocation"].Value = ObsTB.Text;
                 config.Save(ConfigurationSaveMode.Modified);
                 ConfigurationManager.RefreshSection("appSettings");

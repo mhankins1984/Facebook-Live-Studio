@@ -22,15 +22,13 @@ namespace Facebook_Live_Studio.Forms
         //
         // Get required app.config values
         //
-        public string ChyronAddress
+        public string ChyronServer
         {
             get
             {
-                return ConfigurationManager.AppSettings["ChyronAddress"];
+                return ConfigurationManager.AppSettings["ChyronServer"];
             }
         }
-        int current_still;
-        int next_still;
         string server;
 
         private void CommentsDataGridView_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
@@ -120,11 +118,11 @@ namespace Facebook_Live_Studio.Forms
 
         void sendastring(String w)
         {
-            Debug.WriteLine(String.Format("Chyron Address : {0}", ChyronAddress));
-            server = ChyronAddress;
+            Debug.WriteLine(String.Format("Chyron Server : {0}", ChyronServer));
+            server = ChyronServer;
             Int32 port = 23;
             TcpClient client = new TcpClient(server, port);
-            Debug.WriteLine(String.Format("Chyron Address : {0}", client.Client.RemoteEndPoint));
+            Debug.WriteLine(String.Format("Chyron Server : {0}", client.Client.RemoteEndPoint));
 
             NetworkStream stream = client.GetStream();
 
@@ -133,7 +131,7 @@ namespace Facebook_Live_Studio.Forms
             Debug.WriteLine(data + " Data Length : " + data.Length);
 
             // Get a client stream for reading and writing.
-            Debug.WriteLine(String.Format("Is controlling:{0}, stream read : {1}, write : {2} client connected : {3}", ChyronAddress, stream.CanRead, stream.CanWrite, client.Connected));
+            Debug.WriteLine(String.Format("Is controlling:{0}, stream read : {1}, write : {2} client connected : {3}", ChyronServer, stream.CanRead, stream.CanWrite, client.Connected));
 
             // Send the message to the connected TcpServer. 
             stream.Write(data, 0, data.Length);
@@ -384,7 +382,6 @@ namespace Facebook_Live_Studio.Forms
                                 String V5 = @"V\5\13\1\0\feedback strap-auto\1\\" + "\r\n";
 
                                 sendastring(V5);
-                                current_still = next_still;
                                 //
                                 // Refresh CommentsDataGridView
                                 //
@@ -512,7 +509,6 @@ namespace Facebook_Live_Studio.Forms
                                 String V5 = @"V\5\13\1\0\feedback strap-auto\1\\" + "\r\n";
 
                                 sendastring(V5);
-                                current_still = next_still;
                                 //
                                 // Refresh CommentsDataGridView
                                 //
@@ -572,7 +568,7 @@ namespace Facebook_Live_Studio.Forms
             }
         }
 
-        private void ClrBtn_Click(object sender, EventArgs e)
+        private void RefBtn_Click(object sender, EventArgs e)
         {
             //
             // Refresh CommentsDataGridView
@@ -610,7 +606,6 @@ namespace Facebook_Live_Studio.Forms
                 String V5 = @"V\5\13\1\0\feedback strap-auto\1\\" + "\r\n";
 
                 sendastring(V5);
-                current_still = next_still;
             }
             else { System.Windows.Forms.MessageBox.Show("Exisitng comment in Preview.", "Information"); }
         }
@@ -755,7 +750,7 @@ namespace Facebook_Live_Studio.Forms
 
         private void PlyoffBtn_Click(object sender, EventArgs e)
         {
-            string EffectOut = @"E\EffOut_All_2\\" + "\r\n";
+            string EffectOut = @"E\EffOut_All\\" + "\r\n";
             sendastring(EffectOut);
 
             Q1N = null;
@@ -810,6 +805,11 @@ namespace Facebook_Live_Studio.Forms
                 SO.Close();
                 SO = null;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

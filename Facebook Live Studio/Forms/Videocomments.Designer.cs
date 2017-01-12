@@ -28,7 +28,7 @@
             this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelBtn = new System.Windows.Forms.Button();
             this.QueDataGridView = new System.Windows.Forms.DataGridView();
-            this.ClrBtn = new System.Windows.Forms.Button();
+            this.RefBtn = new System.Windows.Forms.Button();
             this.PlyonBtn = new System.Windows.Forms.Button();
             this.LiveDataGridView = new System.Windows.Forms.DataGridView();
             this.VideoTitleLbl = new System.Windows.Forms.Label();
@@ -39,6 +39,7 @@
             this.LiveLbl = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.APCheck = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CommentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QueDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LiveDataGridView)).BeginInit();
@@ -110,15 +111,15 @@
             this.QueDataGridView.TabIndex = 4;
             this.QueDataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.QueDataGridView_CellContentDoubleClick);
             // 
-            // ClrBtn
+            // RefBtn
             // 
-            this.ClrBtn.Location = new System.Drawing.Point(93, 853);
-            this.ClrBtn.Name = "ClrBtn";
-            this.ClrBtn.Size = new System.Drawing.Size(75, 23);
-            this.ClrBtn.TabIndex = 5;
-            this.ClrBtn.Text = "&Clear";
-            this.ClrBtn.UseVisualStyleBackColor = true;
-            this.ClrBtn.Click += new System.EventHandler(this.ClrBtn_Click);
+            this.RefBtn.Location = new System.Drawing.Point(93, 853);
+            this.RefBtn.Name = "RefBtn";
+            this.RefBtn.Size = new System.Drawing.Size(75, 23);
+            this.RefBtn.TabIndex = 5;
+            this.RefBtn.Text = "&Refresh";
+            this.RefBtn.UseVisualStyleBackColor = true;
+            this.RefBtn.Click += new System.EventHandler(this.RefBtn_Click);
             // 
             // PlyonBtn
             // 
@@ -226,12 +227,23 @@
             this.APCheck.Text = "Auto Preview";
             this.APCheck.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1557, 17);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(79, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Manual Entry";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Videocomments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1649, 886);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.LiveLbl);
             this.Controls.Add(this.PrvLbl);
@@ -241,7 +253,7 @@
             this.Controls.Add(this.VideoTitleLbl);
             this.Controls.Add(this.LiveDataGridView);
             this.Controls.Add(this.PlyonBtn);
-            this.Controls.Add(this.ClrBtn);
+            this.Controls.Add(this.RefBtn);
             this.Controls.Add(this.QueDataGridView);
             this.Controls.Add(this.SelBtn);
             this.Controls.Add(this.CommentsDataGridView);
@@ -267,14 +279,13 @@
         private System.Windows.Forms.DataGridView CommentsDataGridView;
         private System.Windows.Forms.Button SelBtn;
         private System.Windows.Forms.DataGridView QueDataGridView;
-        private System.Windows.Forms.Button ClrBtn;
+        private System.Windows.Forms.Button RefBtn;
         private System.Windows.Forms.Button PlyonBtn;
         private System.Windows.Forms.DataGridView LiveDataGridView;
         private System.Windows.Forms.Label VideoTitleLbl;
         private System.Windows.Forms.DataGridViewTextBoxColumn CommentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Namecolumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
-        private System.ComponentModel.IContainer components;
         private System.Windows.Forms.Button RemBtn;
         private System.Windows.Forms.Button PlyoffBtn;
         private System.Windows.Forms.DataGridView PreviewDataGridView;
@@ -282,5 +293,6 @@
         private System.Windows.Forms.Label LiveLbl;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox APCheck;
+        private System.Windows.Forms.Button button1;
     }
 }
