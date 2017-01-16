@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using Facebook;
 
-namespace Facebook_Live_Studio.Forms
+namespace Live_Studio.Forms
 {
     public partial class Schedulelive : Form
     {

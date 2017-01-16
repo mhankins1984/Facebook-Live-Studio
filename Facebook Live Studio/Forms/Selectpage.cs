@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using Facebook;
 using Newtonsoft.Json;
 
-namespace Facebook_Live_Studio.Forms
+namespace Live_Studio.Forms
 {
     public partial class Selectpage : Form
     {

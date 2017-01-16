@@ -6,7 +6,7 @@ using Facebook;
 using Newtonsoft.Json;
 using System.IO;
 
-namespace Facebook_Live_Studio.Forms
+namespace Live_Studio.Forms
 {
     public partial class Selectvideo : Form
     {

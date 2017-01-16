@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Facebook_Live_Studio.Forms
+namespace Live_Studio.Forms
 {
     public partial class Streampreview : Form
     {

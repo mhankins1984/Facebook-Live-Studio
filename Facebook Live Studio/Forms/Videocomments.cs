@@ -11,7 +11,7 @@ using System.Configuration;
 using System.Linq;
 using System.Drawing;
 
-namespace Facebook_Live_Studio.Forms
+namespace Live_Studio.Forms
 {
     public partial class Videocomments : Form
     {
@@ -19,14 +19,26 @@ namespace Facebook_Live_Studio.Forms
         {
             InitializeComponent();
         }
-        //
-        // Get required app.config values
-        //
+
         public string ChyronServer
         {
             get
             {
                 return ConfigurationManager.AppSettings["ChyronServer"];
+            }
+        }
+        public string ComRefTime
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["ComRefTime"];
+            }
+        }
+        public string ComHoldTime
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["ComHoldTime"];
             }
         }
         string server;
@@ -51,13 +63,11 @@ namespace Facebook_Live_Studio.Forms
             e.PaintParts &= ~DataGridViewPaintParts.Focus;
         }
 
-        DataTable QueTable = new DataTable(); // Que table
-        DataTable PreviewTable = new DataTable(); // Preview table
-        DataTable LiveTable = new DataTable(); // Live table
-        DataTable LogTable = new DataTable(); // Log table
-        //
-        // Chyron xml output
-        //
+        DataTable QueTable = new DataTable();
+        DataTable PreviewTable = new DataTable();
+        DataTable LiveTable = new DataTable();
+        DataTable LogTable = new DataTable();
+
         void outputXmL(string name, string comment)
         {
             ChyronData cd = new ChyronData();
@@ -72,9 +82,7 @@ namespace Facebook_Live_Studio.Forms
             x.Serialize(sw, cd);
             sw.Close();
         }
-        //
-        // video comment classes
-        //
+
         public class From
         {
             public string name { get; set; }
@@ -105,9 +113,7 @@ namespace Facebook_Live_Studio.Forms
             public IList<Datum> data { get; set; }
             public Paging paging { get; set; }
         }
-        //
-        // Studio Out
-        //
+
         public static string Q1N { get; set; }
         public static string Q1C { get; set; }
         public static string Q2N { get; set; }
@@ -164,7 +170,7 @@ namespace Facebook_Live_Studio.Forms
         {
             Cursor.Clip = Screen.PrimaryScreen.Bounds;
 
-            if (Selectvideo.VideoID == null) // Checks if VideoID null
+            if (Selectvideo.VideoID == null)
             {
                 var Selectvideo = new Selectvideo();
                 Selectvideo.ShowDialog(this);
@@ -172,15 +178,13 @@ namespace Facebook_Live_Studio.Forms
 
             else { }
 
-            if (Selectvideo.VideoID == null) // Checks if VideoID null
+            if (Selectvideo.VideoID == null)
             {
                 this.Close();
                 timer1.Stop();
             }
-            VideoTitleLbl.Text = Selectvideo.VideoTitle; // Displays video title
-            //
-            // Create columns in tables for tempory data storage
-            //
+            VideoTitleLbl.Text = Selectvideo.VideoTitle;
+
             QueTable.Columns.Add("CommentID", typeof(string));
             QueTable.Columns.Add("Name", typeof(string));
             QueTable.Columns.Add("Comment", typeof(string));
@@ -199,34 +203,25 @@ namespace Facebook_Live_Studio.Forms
             LogTable.Columns.Add("TimeSelected", typeof(string));
 
             InitTimer();
-            //
-            // Get video comments data
-            //
+
             var fb = new FacebookClient(Selectpage.PageAccessToken);
             var LiveVideosComments = string.Format(
                     @"{0}/comments?limit=1000&order=reverse_chronological",
                     Selectvideo.VideoID);
             var result = fb.Get(LiveVideosComments);
             string json = result.ToString();
-            //
-            // Deserialize JSON data
-            //
+
             RootObject rootobject = JsonConvert.DeserializeObject<RootObject>(json);
-            //
-            // CommentsDataGridView autosize
-            //
+
             this.CommentsDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.CommentsDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             this.CommentsDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            // dataGridView text wrap
-            //
+
             this.CommentsDataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             this.QueDataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             this.PreviewDataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             this.LiveDataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            //
-            // dataGridView select only one and whole row
-            //
+
             CommentsDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             CommentsDataGridView.MultiSelect = false;
             CommentsDataGridView.RowPrePaint += new DataGridViewRowPrePaintEventHandler(CommentsDataGridView_RowPrePaint);
@@ -259,14 +254,34 @@ namespace Facebook_Live_Studio.Forms
                 SO.StartPosition = FormStartPosition.Manual;
                 SO.Show();
             }
+
+            QueDataGridView.DataSource = QueTable;
+            PreviewDataGridView.DataSource = PreviewTable;
+            LiveDataGridView.DataSource = LiveTable;
+
+            this.QueDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.QueDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            QueDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            this.PreviewDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.PreviewDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PreviewDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            this.LiveDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.LiveDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            LiveDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            QueDataGridView.Columns[0].Visible = false;
+            PreviewDataGridView.Columns[0].Visible = false;
+            LiveDataGridView.Columns[0].Visible = false;
         }
 
         private System.Windows.Forms.Timer timer1;
         public void InitTimer()
         {
+            int stringToInt = Convert.ToInt32(ComRefTime);
+
             timer1 = new System.Windows.Forms.Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 30000; // in miliseconds
+            timer1.Interval = (1000) * stringToInt;
             timer1.Start();
             timer1.Enabled = true;
         }
@@ -278,12 +293,15 @@ namespace Facebook_Live_Studio.Forms
                 timer1.Stop();
             }
 
+            if (ARCheck.Checked == false)
+            {
+                timer1.Stop();
+            }
+
             else
             {
-                timer1.Interval = 30000; // in miliseconds
-                //
-                // Get video comments data
-                //
+                timer1.Start();
+
                 var fb = new FacebookClient(Selectpage.PageAccessToken);
                 var LiveVideosComments = string.Format(
                         @"{0}/comments?limit=1000&order=reverse_chronological",
@@ -291,9 +309,7 @@ namespace Facebook_Live_Studio.Forms
                 var result = fb.Get(LiveVideosComments);
 
                 string json = result.ToString();
-                //
-                // Deserialize JSON data
-                //
+
                 RootObject rootobject = JsonConvert.DeserializeObject<RootObject>(json);
 
                 int i = 0;
@@ -306,12 +322,19 @@ namespace Facebook_Live_Studio.Forms
                     CommentsDataGridView.Rows[i].Cells[1].Value = d.from.name;
                     CommentsDataGridView.Rows[i++].Cells[2].Value = d.message;
                 }
+
+                int stringToInt = Convert.ToInt32(ComRefTime);
+                timer1.Interval = (1000) * stringToInt;
             }
         }
 
         private void CommentsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            timer1.Interval = 60000; // in miliseconds
+            if (HCheck.Checked == true)
+            {
+                int stringToInt = Convert.ToInt32(ComHoldTime);
+                timer1.Interval = (1000) * stringToInt;
+            }
         }
 
         private void CommentsDataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -319,10 +342,10 @@ namespace Facebook_Live_Studio.Forms
             if (APCheck.Checked == true)
             {
                 int c1 = CommentsDataGridView.SelectedRows.Count;
-                if (c1 > 0) // Checks if a comment has been selected
+                if (c1 > 0)
                 {
                     string cc = CommentsDataGridView.SelectedCells[2].Value.ToString();
-                    if (cc.Length > 170) // Checks if comment under 170 characters
+                    if (cc.Length > 170)
                     {
                         System.Windows.Forms.MessageBox.Show("Comment not added. Comment is over 170 characters.", "Information");
                     }
@@ -331,7 +354,7 @@ namespace Facebook_Live_Studio.Forms
                     {
                         bool exists = LogTable.Select().ToList().Exists(row => row["CommentID"].ToString().ToUpper() == CommentsDataGridView.SelectedCells[0].Value.ToString());
 
-                        if (exists == true) // Check if comment already used.
+                        if (exists == true)
                         { System.Windows.Forms.MessageBox.Show("Comment has already been used.", "Information"); }
 
                         else
@@ -339,56 +362,69 @@ namespace Facebook_Live_Studio.Forms
 
                             int c2 = PreviewDataGridView.SelectedRows.Count;
 
-                            if (c2 > 0) // Checks if preview next has comment
+                            if (c2 > 0)
                             {
                                 QueTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value); // Add to que table
-                                QueDataGridView.DataSource = QueTable;
                                 LogTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value, System.DateTime.Now.ToLongTimeString()); // Add to log table
-                                                                                                                                                                                                                                  //
-                                                                                                                                                                                                                                  // Autosize
-                                                                                                                                                                                                                                  //
-                                this.QueDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                                this.QueDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                                QueDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-                                //
-                                // Hide CommentID from datagridview view
-                                //
-                                QueDataGridView.Columns[0].Visible = false;
-                                //
-                                // Refresh CommentsDataGridView
-                                //
-                                timer1.Interval = 1; // in miliseconds
+
+                                var fb = new FacebookClient(Selectpage.PageAccessToken);
+                                var LiveVideosComments = string.Format(
+                                        @"{0}/comments?limit=1000&order=reverse_chronological",
+                                        Selectvideo.VideoID);
+                                var result = fb.Get(LiveVideosComments);
+
+                                string json = result.ToString();
+
+                                RootObject rootobject = JsonConvert.DeserializeObject<RootObject>(json);
+
+                                int i = 0;
+
+                                CommentsDataGridView.Rows.Clear();
+                                foreach (Datum d in rootobject.data)
+                                {
+                                    CommentsDataGridView.Rows.Add();
+                                    CommentsDataGridView.Rows[i].Cells[0].Value = d.id;
+                                    CommentsDataGridView.Rows[i].Cells[1].Value = d.from.name;
+                                    CommentsDataGridView.Rows[i++].Cells[2].Value = d.message;
+                                }
                             }
 
                             else
                             {
                                 PreviewTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value); // Add to play table
-                                PreviewDataGridView.DataSource = PreviewTable;
                                 LogTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value, System.DateTime.Now.ToLongTimeString()); // Add to log table
-                                                                                                                                                                                                                                  // Autosize
-                                                                                                                                                                                                                                  //
-                                this.PreviewDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                                this.PreviewDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                                PreviewDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-                                PreviewDataGridView.Columns[0].Visible = false; // Hide CommentID from datagridview view
 
                                 string name = PreviewDataGridView.Rows[0].Cells[1].Value.ToString();
                                 string comment = PreviewDataGridView.Rows[0].Cells[2].Value.ToString();
 
                                 outputXmL(name, comment);
 
-                                Thread.Sleep(500); // in miliseconds
+                                Thread.Sleep(500);
                                 String V5 = @"V\5\13\1\0\feedback strap-auto\1\\" + "\r\n";
 
                                 sendastring(V5);
-                                //
-                                // Refresh CommentsDataGridView
-                                //
-                                timer1.Interval = 1; // in miliseconds
-                                                     //
-                                                     // Output details to Studioout form
-                                                     //
+
+                                var fb = new FacebookClient(Selectpage.PageAccessToken);
+                                var LiveVideosComments = string.Format(
+                                        @"{0}/comments?limit=1000&order=reverse_chronological",
+                                        Selectvideo.VideoID);
+                                var result = fb.Get(LiveVideosComments);
+
+                                string json = result.ToString();
+
+                                RootObject rootobject = JsonConvert.DeserializeObject<RootObject>(json);
+
+                                int i = 0;
+
+                                CommentsDataGridView.Rows.Clear();
+                                foreach (Datum d in rootobject.data)
+                                {
+                                    CommentsDataGridView.Rows.Add();
+                                    CommentsDataGridView.Rows[i].Cells[0].Value = d.id;
+                                    CommentsDataGridView.Rows[i].Cells[1].Value = d.from.name;
+                                    CommentsDataGridView.Rows[i++].Cells[2].Value = d.message;
+                                }
+
                                 Q2N = PreviewDataGridView.Rows[0].Cells[1].Value.ToString();
                                 Q2C = PreviewDataGridView.Rows[0].Cells[2].Value.ToString();
                             }
@@ -400,10 +436,10 @@ namespace Facebook_Live_Studio.Forms
             else
             {
                 int c1 = CommentsDataGridView.SelectedRows.Count;
-                if (c1 > 0) // Checks if a comment has been selected
+                if (c1 > 0)
                 {
                     string cc = CommentsDataGridView.SelectedCells[2].Value.ToString();
-                    if (cc.Length > 170) // Checks if comment under 170 characters
+                    if (cc.Length > 170)
                     {
                         System.Windows.Forms.MessageBox.Show("Comment not added. Comment is over 170 characters.", "Information");
                     }
@@ -412,28 +448,34 @@ namespace Facebook_Live_Studio.Forms
                     {
                         bool exists = LogTable.Select().ToList().Exists(row => row["CommentID"].ToString().ToUpper() == CommentsDataGridView.SelectedCells[0].Value.ToString());
 
-                        if (exists == true) // Check if comment already used.
+                        if (exists == true)
                         { System.Windows.Forms.MessageBox.Show("Comment has already been used.", "Information"); }
 
                         else
                         {
                             QueTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value); // Add to que table
-                            QueDataGridView.DataSource = QueTable;
                             LogTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value, System.DateTime.Now.ToLongTimeString()); // Add to log table
-                                                                                                                                                                                                                              //
-                                                                                                                                                                                                                              // Autosize
-                                                                                                                                                                                                                              //
-                            this.QueDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                            this.QueDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                            QueDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-                            //
-                            // Hide CommentID from datagridview view
-                            //
-                            QueDataGridView.Columns[0].Visible = false;
-                            //
-                            // Refresh CommentsDataGridView
-                            //
-                            timer1.Interval = 1; // in miliseconds
+                                                                                                                                                                                                                              
+                            var fb = new FacebookClient(Selectpage.PageAccessToken);
+                            var LiveVideosComments = string.Format(
+                                    @"{0}/comments?limit=1000&order=reverse_chronological",
+                                    Selectvideo.VideoID);
+                            var result = fb.Get(LiveVideosComments);
+
+                            string json = result.ToString();
+
+                            RootObject rootobject = JsonConvert.DeserializeObject<RootObject>(json);
+
+                            int i = 0;
+
+                            CommentsDataGridView.Rows.Clear();
+                            foreach (Datum d in rootobject.data)
+                            {
+                                CommentsDataGridView.Rows.Add();
+                                CommentsDataGridView.Rows[i].Cells[0].Value = d.id;
+                                CommentsDataGridView.Rows[i].Cells[1].Value = d.from.name;
+                                CommentsDataGridView.Rows[i++].Cells[2].Value = d.message;
+                            }
                         }
                     }
                 }
@@ -446,10 +488,10 @@ namespace Facebook_Live_Studio.Forms
             if (APCheck.Checked == true)
             {
                 int c1 = CommentsDataGridView.SelectedRows.Count;
-                if (c1 > 0) // Checks if a comment has been selected
+                if (c1 > 0)
                 {
                     string cc = CommentsDataGridView.SelectedCells[2].Value.ToString();
-                    if (cc.Length > 170) // Checks if comment under 170 characters
+                    if (cc.Length > 170)
                     {
                         System.Windows.Forms.MessageBox.Show("Comment not added. Comment is over 170 characters.", "Information");
                     }
@@ -458,7 +500,7 @@ namespace Facebook_Live_Studio.Forms
                     {
                         bool exists = LogTable.Select().ToList().Exists(row => row["CommentID"].ToString().ToUpper() == CommentsDataGridView.SelectedCells[0].Value.ToString());
 
-                        if (exists == true) // Check if comment already used.
+                        if (exists == true)
                         { System.Windows.Forms.MessageBox.Show("Comment has already been used.", "Information"); }
 
                         else
@@ -466,56 +508,70 @@ namespace Facebook_Live_Studio.Forms
 
                             int c2 = PreviewDataGridView.SelectedRows.Count;
 
-                            if (c2 > 0) // Checks if preview next has comment
+                            if (c2 > 0)
                             {
                                 QueTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value); // Add to que table
-                                QueDataGridView.DataSource = QueTable;
                                 LogTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value, System.DateTime.Now.ToLongTimeString()); // Add to log table
-                                                                                                                                                                                                                                  //
-                                                                                                                                                                                                                                  // Autosize
-                                                                                                                                                                                                                                  //
-                                this.QueDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                                this.QueDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                                QueDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-                                //
-                                // Hide CommentID from datagridview view
-                                //
-                                QueDataGridView.Columns[0].Visible = false;
-                                //
-                                // Refresh CommentsDataGridView
-                                //
-                                timer1.Interval = 1; // in miliseconds
+
+                                var fb = new FacebookClient(Selectpage.PageAccessToken);
+                                var LiveVideosComments = string.Format(
+                                        @"{0}/comments?limit=1000&order=reverse_chronological",
+                                        Selectvideo.VideoID);
+                                var result = fb.Get(LiveVideosComments);
+
+                                string json = result.ToString();
+
+                                RootObject rootobject = JsonConvert.DeserializeObject<RootObject>(json);
+
+                                int i = 0;
+
+                                CommentsDataGridView.Rows.Clear();
+                                foreach (Datum d in rootobject.data)
+                                {
+                                    CommentsDataGridView.Rows.Add();
+                                    CommentsDataGridView.Rows[i].Cells[0].Value = d.id;
+                                    CommentsDataGridView.Rows[i].Cells[1].Value = d.from.name;
+                                    CommentsDataGridView.Rows[i++].Cells[2].Value = d.message;
+                                }
+
                             }
 
                             else
                             {
                                 PreviewTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value); // Add to play table
-                                PreviewDataGridView.DataSource = PreviewTable;
                                 LogTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value, System.DateTime.Now.ToLongTimeString()); // Add to log table
-                                                                                                                                                                                                                                  // Autosize
-                                                                                                                                                                                                                                  //
-                                this.PreviewDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                                this.PreviewDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                                PreviewDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-                                PreviewDataGridView.Columns[0].Visible = false; // Hide CommentID from datagridview view
 
                                 string name = PreviewDataGridView.Rows[0].Cells[1].Value.ToString();
                                 string comment = PreviewDataGridView.Rows[0].Cells[2].Value.ToString();
 
                                 outputXmL(name, comment);
 
-                                Thread.Sleep(500); // in miliseconds
+                                Thread.Sleep(500);
                                 String V5 = @"V\5\13\1\0\feedback strap-auto\1\\" + "\r\n";
 
                                 sendastring(V5);
-                                //
-                                // Refresh CommentsDataGridView
-                                //
-                                timer1.Interval = 1; // in miliseconds
-                                                     //
-                                                     // Output details to Studioout form
-                                                     //
+
+                                var fb = new FacebookClient(Selectpage.PageAccessToken);
+                                var LiveVideosComments = string.Format(
+                                        @"{0}/comments?limit=1000&order=reverse_chronological",
+                                        Selectvideo.VideoID);
+                                var result = fb.Get(LiveVideosComments);
+
+                                string json = result.ToString();
+
+                                RootObject rootobject = JsonConvert.DeserializeObject<RootObject>(json);
+
+                                int i = 0;
+
+                                CommentsDataGridView.Rows.Clear();
+                                foreach (Datum d in rootobject.data)
+                                {
+                                    CommentsDataGridView.Rows.Add();
+                                    CommentsDataGridView.Rows[i].Cells[0].Value = d.id;
+                                    CommentsDataGridView.Rows[i].Cells[1].Value = d.from.name;
+                                    CommentsDataGridView.Rows[i++].Cells[2].Value = d.message;
+                                }
+
                                 Q2N = PreviewDataGridView.Rows[0].Cells[1].Value.ToString();
                                 Q2C = PreviewDataGridView.Rows[0].Cells[2].Value.ToString();
                             }
@@ -526,12 +582,11 @@ namespace Facebook_Live_Studio.Forms
 
             else
             {
-
                 int c1 = CommentsDataGridView.SelectedRows.Count;
-                if (c1 > 0) // Checks if a comment has been selected
+                if (c1 > 0)
                 {
                     string cc = CommentsDataGridView.SelectedCells[2].Value.ToString();
-                    if (cc.Length > 170) // Checks if comment under 170 characters
+                    if (cc.Length > 170)
                     {
                         System.Windows.Forms.MessageBox.Show("Comment not added. Comment is over 170 characters.", "Information");
                     }
@@ -540,26 +595,35 @@ namespace Facebook_Live_Studio.Forms
                     {
                         bool exists = LogTable.Select().ToList().Exists(row => row["CommentID"].ToString().ToUpper() == CommentsDataGridView.SelectedCells[0].Value.ToString());
 
-                        if (exists == true) // Check if comment already used.
+                        if (exists == true)
                         { System.Windows.Forms.MessageBox.Show("Comment has already been used.", "Information"); }
 
                         else
                         {
                             QueTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value); // Add to que table
-                            QueDataGridView.DataSource = QueTable;
                             LogTable.Rows.Add(CommentsDataGridView.SelectedCells[0].Value, CommentsDataGridView.SelectedCells[1].Value, CommentsDataGridView.SelectedCells[2].Value, System.DateTime.Now.ToLongTimeString()); // Add to log table
-                                                                                                                                                                                                                              //
-                            this.QueDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                            this.QueDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                            QueDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-                            //
-                            // Hide CommentID from datagridview view
-                            //
-                            QueDataGridView.Columns[0].Visible = false;
-                            //
-                            // Refresh CommentsDataGridView
-                            //
-                            timer1.Interval = 1; // in miliseconds
+                               
+                            var fb = new FacebookClient(Selectpage.PageAccessToken);
+                            var LiveVideosComments = string.Format(
+                                    @"{0}/comments?limit=1000&order=reverse_chronological",
+                                    Selectvideo.VideoID);
+                            var result = fb.Get(LiveVideosComments);
+
+                            string json = result.ToString();
+
+                            RootObject rootobject = JsonConvert.DeserializeObject<RootObject>(json);
+
+                            int i = 0;
+
+                            CommentsDataGridView.Rows.Clear();
+                            foreach (Datum d in rootobject.data)
+                            {
+                                CommentsDataGridView.Rows.Add();
+                                CommentsDataGridView.Rows[i].Cells[0].Value = d.id;
+                                CommentsDataGridView.Rows[i].Cells[1].Value = d.from.name;
+                                CommentsDataGridView.Rows[i++].Cells[2].Value = d.message;
+                            }
+
                         }
                     }
                 }
@@ -570,44 +634,66 @@ namespace Facebook_Live_Studio.Forms
 
         private void RefBtn_Click(object sender, EventArgs e)
         {
-            //
-            // Refresh CommentsDataGridView
-            //
-            timer1.Interval = 1; // in miliseconds
+            var fb = new FacebookClient(Selectpage.PageAccessToken);
+            var LiveVideosComments = string.Format(
+                    @"{0}/comments?limit=1000&order=reverse_chronological",
+                    Selectvideo.VideoID);
+            var result = fb.Get(LiveVideosComments);
+
+            string json = result.ToString();
+
+            RootObject rootobject = JsonConvert.DeserializeObject<RootObject>(json);
+
+            int i = 0;
+
+            CommentsDataGridView.Rows.Clear();
+            foreach (Datum d in rootobject.data)
+            {
+                CommentsDataGridView.Rows.Add();
+                CommentsDataGridView.Rows[i].Cells[0].Value = d.id;
+                CommentsDataGridView.Rows[i].Cells[1].Value = d.from.name;
+                CommentsDataGridView.Rows[i++].Cells[2].Value = d.message;
+            }
         }
 
         private void QueDataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (APCheck.Checked == true)
+            { System.Windows.Forms.MessageBox.Show("Auto Preview enabled.", "Information"); }
 
-            int c1 = PreviewDataGridView.SelectedRows.Count;
-
-            if (c1 < 1) // Checks if preview has existing
+            if (APCheck.Checked == false)
             {
-                PreviewTable.Rows.Add(QueDataGridView.SelectedCells[0].Value, QueDataGridView.SelectedCells[1].Value, QueDataGridView.SelectedCells[2].Value); // Add to que table
-                PreviewDataGridView.DataSource = PreviewTable;
+                int c1 = PreviewDataGridView.SelectedRows.Count;
 
-                this.PreviewDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                this.PreviewDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                PreviewDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-                //
-                // Hide CommentID from datagridview view
-                //
-                PreviewDataGridView.Columns[0].Visible = false;
+                if (c1 < 1) // Checks if preview has existing
+                {
+                    PreviewTable.Rows.Add(QueDataGridView.SelectedCells[0].Value, QueDataGridView.SelectedCells[1].Value, QueDataGridView.SelectedCells[2].Value); // Add to que table
+                    PreviewDataGridView.DataSource = PreviewTable;
 
-                Q2N = PreviewDataGridView.Rows[0].Cells[1].Value.ToString();
-                Q2C = PreviewDataGridView.Rows[0].Cells[2].Value.ToString();
+                    if (QCCheck.Checked == true)
+                    {
+                        foreach (DataGridViewRow row in QueDataGridView.SelectedRows)
+                        {
+                            if (!row.IsNewRow)
+                                QueDataGridView.Rows.Remove(row);
+                        }
+                    }
 
-                string name = PreviewDataGridView.Rows[0].Cells[1].Value.ToString();
-                string comment = PreviewDataGridView.Rows[0].Cells[2].Value.ToString();
+                    Q2N = PreviewDataGridView.Rows[0].Cells[1].Value.ToString();
+                    Q2C = PreviewDataGridView.Rows[0].Cells[2].Value.ToString();
 
-                outputXmL(name, comment);
+                    string name = PreviewDataGridView.Rows[0].Cells[1].Value.ToString();
+                    string comment = PreviewDataGridView.Rows[0].Cells[2].Value.ToString();
 
-                Thread.Sleep(500); // in miliseconds
-                String V5 = @"V\5\13\1\0\feedback strap-auto\1\\" + "\r\n";
+                    outputXmL(name, comment);
 
-                sendastring(V5);
+                    Thread.Sleep(500); // in miliseconds
+                    String V5 = @"V\5\13\1\0\feedback strap-auto\1\\" + "\r\n";
+
+                    sendastring(V5);
+                }
+                else { System.Windows.Forms.MessageBox.Show("Exisitng comment in Preview.", "Information"); }
             }
-            else { System.Windows.Forms.MessageBox.Show("Exisitng comment in Preview.", "Information"); }
         }
 
         private void RemBtn_Click(object sender, EventArgs e)
@@ -647,11 +733,6 @@ namespace Facebook_Live_Studio.Forms
                         Q1N = LiveDataGridView.Rows[0].Cells[1].Value.ToString();
                         Q1C = LiveDataGridView.Rows[0].Cells[2].Value.ToString();
                         Live = "LIVE";
-
-                        this.LiveDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                        this.LiveDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                        LiveDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-                        LiveDataGridView.Columns[0].Visible = false;
 
                         foreach (DataGridViewRow row in PreviewDataGridView.SelectedRows)
                         {
@@ -718,11 +799,6 @@ namespace Facebook_Live_Studio.Forms
                         Q1N = LiveDataGridView.Rows[0].Cells[1].Value.ToString();
                         Q1C = LiveDataGridView.Rows[0].Cells[2].Value.ToString();
                         Live = "LIVE";
-
-                        this.LiveDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                        this.LiveDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                        LiveDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-                        LiveDataGridView.Columns[0].Visible = false;
 
                         foreach (DataGridViewRow row in PreviewDataGridView.SelectedRows)
                         {
@@ -807,9 +883,39 @@ namespace Facebook_Live_Studio.Forms
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ManualBtn_Click(object sender, EventArgs e)
         {
+            Manualentry Manualentry = new Manualentry(this.QueTable, this.PreviewTable, this.APCheck, this.PreviewDataGridView);
+            Manualentry.Show();
+        }
 
+        private void APCheck_CheckChanged(object sender, EventArgs e)
+        {
+            if (APCheck.Checked == true)
+            {
+                QCCheck.Checked = true;
+            }
+        }
+
+        private void QCCheck_CheckChanged(object sender, EventArgs e)
+        {
+            if (QCCheck.Checked == false)
+            {
+                APCheck.Checked = false;
+            }
+        }
+
+        private void ARCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ARCheck.Checked == false)
+            {
+                timer1.Stop();
+            }
+
+            if (ARCheck.Checked == true)
+            {
+                timer1.Start();
+            }
         }
     }
 }

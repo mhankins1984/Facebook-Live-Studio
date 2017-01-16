@@ -1,4 +1,4 @@
-﻿namespace Facebook_Live_Studio.Forms
+﻿namespace Live_Studio.Forms
 {
     partial class SystemConfiguration
     {
@@ -64,7 +64,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Chyron Server";
             // 
@@ -74,7 +74,7 @@
             this.SavBtn.Name = "SavBtn";
             this.SavBtn.Size = new System.Drawing.Size(75, 23);
             this.SavBtn.TabIndex = 4;
-            this.SavBtn.Text = "Save Settings";
+            this.SavBtn.Text = "Save";
             this.SavBtn.UseVisualStyleBackColor = true;
             this.SavBtn.Click += new System.EventHandler(this.SavBtn_Click);
             // 

@@ -1,4 +1,4 @@
-﻿namespace Facebook_Live_Studio.Forms
+﻿namespace Live_Studio.Forms
 {
     partial class Controlcentre
     {
@@ -40,18 +40,18 @@
             this.PgeBtn = new System.Windows.Forms.Button();
             this.VidBtn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemConfigurationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.Header = new System.Windows.Forms.PictureBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Header)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // ComBtn
@@ -113,7 +113,7 @@
             this.groupBox1.Controls.Add(this.PrvBtn);
             this.groupBox1.Controls.Add(this.LviBtn);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(185, 327);
+            this.groupBox1.Location = new System.Drawing.Point(185, 317);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(167, 50);
             this.groupBox1.TabIndex = 9;
@@ -125,7 +125,7 @@
             this.groupBox3.Controls.Add(this.LveBtn);
             this.groupBox3.Controls.Add(this.SchBtn);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(12, 327);
+            this.groupBox3.Location = new System.Drawing.Point(12, 317);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(167, 50);
             this.groupBox3.TabIndex = 11;
@@ -170,23 +170,12 @@
             this.groupBox2.Controls.Add(this.VidBtn);
             this.groupBox2.Controls.Add(this.PgeBtn);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(99, 254);
+            this.groupBox2.Location = new System.Drawing.Point(99, 244);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(167, 50);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Selections";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.ComBtn);
-            this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(98, 401);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(167, 50);
-            this.groupBox4.TabIndex = 11;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Comment Control";
             // 
             // menuStrip1
             // 
@@ -234,6 +223,17 @@
             this.Header.TabIndex = 14;
             this.Header.TabStop = false;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.ComBtn);
+            this.groupBox4.ForeColor = System.Drawing.Color.White;
+            this.groupBox4.Location = new System.Drawing.Point(99, 391);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(167, 50);
+            this.groupBox4.TabIndex = 11;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Comment Control";
+            // 
             // Controlcentre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,10 +259,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Header)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,11 +280,11 @@
         private System.Windows.Forms.Button PgeBtn;
         private System.Windows.Forms.Button VidBtn;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem configurationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemConfigurationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemConfigurationToolStripMenuItem1;
         private System.Windows.Forms.PictureBox Header;
+        private System.Windows.Forms.GroupBox groupBox4;
     }
 }

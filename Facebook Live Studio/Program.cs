@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Facebook_Live_Studio.Forms
+namespace Live_Studio.Forms
 {
     static class Program
     {

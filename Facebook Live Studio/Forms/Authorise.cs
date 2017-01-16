@@ -2,9 +2,8 @@
 using System.Configuration;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using Facebook;
 
-namespace Facebook_Live_Studio.Forms
+namespace Live_Studio.Forms
 
 {
     public partial class Authorise : Form
@@ -13,9 +12,7 @@ namespace Facebook_Live_Studio.Forms
         {
             InitializeComponent();
         }
-        //
-        // Get required app.config values
-        //
+
         public string ApplicationId
         {
             get
@@ -40,16 +37,10 @@ namespace Facebook_Live_Studio.Forms
             }
         }
 
-
         public static string UserAccessToken { get; set; }
-       // public static string PageAccessToken { get; set; }
-
 
         private void LoadAuthorise(object sender, EventArgs e)
         {
-            //
-            // request user access token
-            //
             var destinationURL = String.Format(
                 @"https://www.facebook.com/v2.8/dialog/oauth?client_id={0}&scope={1}&redirect_uri=https://www.facebook.com/connect/login_success.html&response_type=token",
                 this.ApplicationId,
@@ -59,9 +50,6 @@ namespace Facebook_Live_Studio.Forms
         }
 
         private void WebBrowserNavigated(object sender, WebBrowserNavigatedEventArgs e)
-        //
-        // get user access token from URL
-        //
         {
             var url = e.Url.Fragment;
             if (url.Contains("access_token") && url.Contains("#"))
@@ -69,22 +57,7 @@ namespace Facebook_Live_Studio.Forms
                 this.Close();
                 url = (new Regex("#")).Replace(url, "?", 1);
                 UserAccessToken = System.Web.HttpUtility.ParseQueryString(url).Get("access_token");
-
-                try
-                {
-
-                }
-                catch (Exception exception)
-                {
-                    Console.Write(exception);
-                }
             }
-
-        }
-
-        private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-
         }
     }
 }

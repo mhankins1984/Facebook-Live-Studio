@@ -1,4 +1,4 @@
-﻿namespace Facebook_Live_Studio.Forms
+﻿namespace Live_Studio.Forms
 {
     partial class Videocomments
     {
@@ -11,15 +11,15 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-          base.Dispose(disposing);
+            base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-            /// <summary>
-            /// Required method for Designer support - do not modify
-            /// the contents of this method with the code editor.
-            /// </summary>
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
         private void InitializeComponent()
         {
             this.CommentsDataGridView = new System.Windows.Forms.DataGridView();
@@ -38,8 +38,11 @@
             this.PrvLbl = new System.Windows.Forms.Label();
             this.LiveLbl = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.HCheck = new System.Windows.Forms.CheckBox();
+            this.ARCheck = new System.Windows.Forms.CheckBox();
+            this.QCCheck = new System.Windows.Forms.CheckBox();
             this.APCheck = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ManualBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CommentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QueDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LiveDataGridView)).BeginInit();
@@ -107,6 +110,7 @@
             this.QueDataGridView.Location = new System.Drawing.Point(836, 47);
             this.QueDataGridView.Name = "QueDataGridView";
             this.QueDataGridView.ReadOnly = true;
+            this.QueDataGridView.RowHeadersVisible = false;
             this.QueDataGridView.Size = new System.Drawing.Size(800, 547);
             this.QueDataGridView.TabIndex = 4;
             this.QueDataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.QueDataGridView_CellContentDoubleClick);
@@ -207,6 +211,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.HCheck);
+            this.groupBox1.Controls.Add(this.ARCheck);
+            this.groupBox1.Controls.Add(this.QCCheck);
             this.groupBox1.Controls.Add(this.APCheck);
             this.groupBox1.Location = new System.Drawing.Point(1251, 600);
             this.groupBox1.Name = "groupBox1";
@@ -215,27 +222,66 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Options";
             // 
+            // HCheck
+            // 
+            this.HCheck.AutoSize = true;
+            this.HCheck.Checked = true;
+            this.HCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.HCheck.Location = new System.Drawing.Point(275, 19);
+            this.HCheck.Name = "HCheck";
+            this.HCheck.Size = new System.Drawing.Size(95, 17);
+            this.HCheck.TabIndex = 3;
+            this.HCheck.Text = "Comment Hold";
+            this.HCheck.UseVisualStyleBackColor = true;
+            // 
+            // ARCheck
+            // 
+            this.ARCheck.AutoSize = true;
+            this.ARCheck.Checked = true;
+            this.ARCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ARCheck.Location = new System.Drawing.Point(6, 19);
+            this.ARCheck.Name = "ARCheck";
+            this.ARCheck.Size = new System.Drawing.Size(88, 17);
+            this.ARCheck.TabIndex = 2;
+            this.ARCheck.Text = "Auto Refresh";
+            this.ARCheck.UseVisualStyleBackColor = true;
+            this.ARCheck.CheckedChanged += new System.EventHandler(this.ARCheck_CheckedChanged);
+            // 
+            // QCCheck
+            // 
+            this.QCCheck.AutoSize = true;
+            this.QCCheck.Checked = true;
+            this.QCCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.QCCheck.Location = new System.Drawing.Point(196, 19);
+            this.QCCheck.Name = "QCCheck";
+            this.QCCheck.Size = new System.Drawing.Size(73, 17);
+            this.QCCheck.TabIndex = 1;
+            this.QCCheck.Text = "Que Clear";
+            this.QCCheck.UseVisualStyleBackColor = true;
+            this.QCCheck.CheckedChanged += new System.EventHandler(this.QCCheck_CheckChanged);
+            // 
             // APCheck
             // 
             this.APCheck.AutoSize = true;
             this.APCheck.Checked = true;
             this.APCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.APCheck.Location = new System.Drawing.Point(6, 19);
+            this.APCheck.Location = new System.Drawing.Point(100, 19);
             this.APCheck.Name = "APCheck";
             this.APCheck.Size = new System.Drawing.Size(89, 17);
             this.APCheck.TabIndex = 0;
             this.APCheck.Text = "Auto Preview";
             this.APCheck.UseVisualStyleBackColor = true;
+            this.APCheck.CheckedChanged += new System.EventHandler(this.APCheck_CheckChanged);
             // 
-            // button1
+            // ManualBtn
             // 
-            this.button1.Location = new System.Drawing.Point(1557, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Manual Entry";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ManualBtn.Location = new System.Drawing.Point(1557, 17);
+            this.ManualBtn.Name = "ManualBtn";
+            this.ManualBtn.Size = new System.Drawing.Size(79, 23);
+            this.ManualBtn.TabIndex = 18;
+            this.ManualBtn.Text = "Manual Entry";
+            this.ManualBtn.UseVisualStyleBackColor = true;
+            this.ManualBtn.Click += new System.EventHandler(this.ManualBtn_Click);
             // 
             // Videocomments
             // 
@@ -243,7 +289,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1649, 886);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ManualBtn);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.LiveLbl);
             this.Controls.Add(this.PrvLbl);
@@ -293,6 +339,9 @@
         private System.Windows.Forms.Label LiveLbl;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox APCheck;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ManualBtn;
+        private System.Windows.Forms.CheckBox QCCheck;
+        private System.Windows.Forms.CheckBox ARCheck;
+        private System.Windows.Forms.CheckBox HCheck;
     }
 }

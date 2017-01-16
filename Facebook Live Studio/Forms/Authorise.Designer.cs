@@ -1,4 +1,4 @@
-﻿namespace Facebook_Live_Studio.Forms
+﻿namespace Live_Studio.Forms
 {
     partial class Authorise
     {
@@ -39,7 +39,6 @@
             this.webBrowser.Name = "webBrowser";
             this.webBrowser.Size = new System.Drawing.Size(1084, 816);
             this.webBrowser.TabIndex = 0;
-            this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
             // 
             // Authorise
             // 

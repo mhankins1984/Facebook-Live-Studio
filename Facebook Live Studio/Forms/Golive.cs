@@ -5,7 +5,7 @@ using System.IO;
 using System.Configuration;
 
 
-namespace Facebook_Live_Studio.Forms
+namespace Live_Studio.Forms
 {
     public partial class Golive : Form
     {

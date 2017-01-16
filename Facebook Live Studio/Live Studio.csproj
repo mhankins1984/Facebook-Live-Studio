@@ -104,6 +104,18 @@
     <Compile Include="Forms\Golive.Designer.cs">
       <DependentUpon>Golive.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Manualentry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Manualentry.Designer.cs">
+      <DependentUpon>Manualentry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Preferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Preferences.Designer.cs">
+      <DependentUpon>Preferences.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Selectpage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +171,12 @@
     <EmbeddedResource Include="Forms\Golive.resx">
       <DependentUpon>Golive.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Manualentry.resx">
+      <DependentUpon>Manualentry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Preferences.resx">
+      <DependentUpon>Preferences.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Selectpage.resx">
       <DependentUpon>Selectpage.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,7 +205,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxAXVLC">

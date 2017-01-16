@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 
-namespace Facebook_Live_Studio.Forms
+namespace Live_Studio.Forms
 {
     public partial class Controlcentre : Form
     {
@@ -55,7 +54,6 @@ namespace Facebook_Live_Studio.Forms
         {
             var Selectpage = new Selectpage();
             Selectpage.ShowDialog(this);
-
         }
 
         private void Btn5_Click(object sender, EventArgs e)
@@ -72,7 +70,8 @@ namespace Facebook_Live_Studio.Forms
 
         private void systemConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.MessageBox.Show("Not currently enabled.", "Information");
+            var Preferences = new Preferences();
+            Preferences.ShowDialog(this);
         }
 
         private void LviBtn_Click(object sender, EventArgs e)

@@ -1,4 +1,4 @@
-﻿namespace Facebook_Live_Studio.Forms
+﻿namespace Live_Studio.Forms
 {
     partial class Schedulelive
     {
